@@ -1,8 +1,6 @@
 # Bye, Explore
 
-```
 https://bye-explorer.web.app/
-```
 
 ## 개발 규칙
 
