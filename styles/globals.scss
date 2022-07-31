@@ -14,9 +14,12 @@ body {
     Baskerville,
     Georgia,
     serif;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
   cursor: url('/icons/cursor.svg'), auto;
   font-size: 50px;
   color: #fff;
+  overflow-x: hidden;
 }
 
 a {
