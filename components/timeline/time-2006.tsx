@@ -1,6 +1,7 @@
 import { memo, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import FloatingIcon from './floating-icon';
 
 const Time2006 = () => {
   useEffect(() => {
@@ -18,7 +19,7 @@ const Time2006 = () => {
       scrollTrigger: {
         trigger: '#first',
         start: 'top bottom',
-        scrub: true,
+        scrub: 1.5,
       },
     });
 
@@ -34,7 +35,7 @@ const Time2006 = () => {
       scrollTrigger: {
         trigger: '#second',
         start: 'top bottom',
-        scrub: true,
+        scrub: 1.5,
       },
     });
 
@@ -50,7 +51,7 @@ const Time2006 = () => {
       scrollTrigger: {
         trigger: '#third',
         start: 'top bottom',
-        scrub: true,
+        scrub: 1.5,
       },
     });
     gsap.from('#fourth', {
@@ -65,14 +66,40 @@ const Time2006 = () => {
       scrollTrigger: {
         trigger: '#fourth',
         start: 'top bottom',
-        scrub: true,
+        scrub: 1.5,
       },
     });
   }, []);
 
   return (
     <>
-      <section className="bg-blue flex justify-center gap-6 mt-5 ">
+      <section className="bg-blue flex justify-center gap-6 mt-5 relative">
+        <FloatingIcon src={'/icons/book.svg'} className="absolute left-[6rem]" toParams={{ y: '-100' }} />
+        <FloatingIcon
+          src={'/icons/computer.svg'}
+          className="absolute right-[4rem] top-[1rem]"
+          toParams={{ y: '-300' }}
+        />
+        <FloatingIcon
+          src={'/icons/folder.svg'}
+          className="absolute right-[12.5rem] top-[3rem]"
+          toParams={{ y: '-90', rotate: 70 }}
+        />
+        <FloatingIcon
+          src={'/icons/tree.svg'}
+          className="absolute left-[-2rem] top-[7rem]"
+          toParams={{ y: '-250', rotate: 100 }}
+        />
+        <FloatingIcon
+          src={'/icons/memo.svg'}
+          className="absolute left-[10rem] bottom-[-3rem]"
+          toParams={{ y: '-160', rotate: 120 }}
+        />
+        <FloatingIcon
+          src={'/icons/draw.svg'}
+          className="absolute right-[-2rem] bottom-[-1rem]"
+          toParams={{ y: '-100', rotate: 85 }}
+        />
         <span className="text-[11rem] leading-[7.5rem]" id="first">
           2
         </span>
