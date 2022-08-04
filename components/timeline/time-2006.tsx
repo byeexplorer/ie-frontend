@@ -1,7 +1,7 @@
 import { memo, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import FloatingIcon from './floating-icon';
+import FloatingIcon from '../common/floating-icon';
 
 const Time2006 = () => {
   useEffect(() => {
