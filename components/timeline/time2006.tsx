@@ -73,6 +73,7 @@ const Time2006 = () => {
 
   return (
     <>
+      {/* <!-- 2006 Timeline --> */}
       <section className="bg-blue flex justify-center gap-6 mt-5 relative">
         <FloatingIcon src={'/icons/book.svg'} className="absolute left-[6rem]" toParams={{ y: '-100' }} />
         <FloatingIcon
