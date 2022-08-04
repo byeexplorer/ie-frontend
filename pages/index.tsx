@@ -1,4 +1,4 @@
-import { Time2006 } from 'components/timeline';
+import { Desc2006, Time2006 } from 'components/timeline';
 
 export default function MainPage() {
   return (
@@ -11,6 +11,7 @@ export default function MainPage() {
           <br /> as an add-on to the Windows 95 operating system.
         </section>
         <Time2006 />
+        <Desc2006 />
       </article>
     </div>
   );
