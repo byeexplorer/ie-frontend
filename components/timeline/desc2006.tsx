@@ -9,17 +9,18 @@ const Desc2006 = () => {
 
     const rowSection = gsap.utils.toArray('#row');
 
-    gsap.to(rowSection, {
-      xPercent: -100,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#row',
-        pin: true,
-        markers: true,
-        start: 'top top',
-        scrub: true,
-      },
-    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#row',
+          pin: true,
+          start: 'top top',
+          scrub: true,
+        },
+      })
+      .to(rowSection, { xPercent: -100, ease: 'none' })
+      .to('#text-1', { x: 0 })
+      .to('#text-2', { x: 0 });
   }, []);
 
   return (
@@ -34,17 +35,17 @@ const Desc2006 = () => {
       </section>
       {/* <!-- 2006 Description --> */}
       <section className="w-full text-blue">
-        <article id="row" className="w-[100vw] h-[100vh] bg-white translate-x-full">
-          <h1 className="text-5xl ml-5 pt-10" id="text-1">
+        <article id="row" className="w-[100vw] h-[130vh] bg-white translate-x-full">
+          <h1 className="text-5xl ml-5 pt-10 translate-x-16" id="text-1">
             The Hiatus and Security
           </h1>
-          <div className="flex ml-5" id="text-2">
+          <div className="flex ml-5 translate-x-36" id="text-2">
             <h1 className="text-5xl mt-3 mr-4">Troubles</h1>
             <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
           </div>
         </article>
         <article className="bg-white ">
-          <p className="pt-[256px] ml-[45%]">
+          <p className=" ml-[45%]">
             Internet Explorer users were at risk for <br />
             284 days in 2006 because of delays in <br />
             patching known flaws, according to a <br />
