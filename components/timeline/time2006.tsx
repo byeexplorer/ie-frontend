@@ -1,7 +1,7 @@
 import { memo, useEffect } from 'react';
+import FloatingIcon from '../common/floating-icon';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import FloatingIcon from '../common/floating-icon';
 
 const Time2006 = () => {
   useEffect(() => {
@@ -73,8 +73,8 @@ const Time2006 = () => {
 
   return (
     <>
-      {/* <!-- 2006 Timeline --> */}
-      <section className="bg-blue flex justify-center gap-6 mt-5 relative">
+      {/* <!-- 2006 Description --> */}
+      <section className="bg-blue flex justify-center gap-6 mt-5 relative mb-10">
         <FloatingIcon src={'/icons/book.svg'} className="absolute left-[6rem]" toParams={{ y: '-100' }} />
         <FloatingIcon
           src={'/icons/computer.svg'}
@@ -113,9 +113,6 @@ const Time2006 = () => {
         <span className="text-[11rem] leading-[7.5rem]" id="fourth">
           6
         </span>
-      </section>
-      <section>
-        <div className="w-[30vw] h-[30vw] bg-slate-400 mt-[50vh] mb-[13vw]" />
       </section>
     </>
   );
