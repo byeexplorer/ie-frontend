@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 @tailwind base;
 @tailwind components;
@@ -8,12 +8,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: TimesNewRoman,
-    "Times New Roman",
-    Times,
-    Baskerville,
-    Georgia,
-    serif;
+  font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
   cursor: url('/icons/cursor.svg'), auto;
@@ -31,6 +26,12 @@ a {
   box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6,p{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }
