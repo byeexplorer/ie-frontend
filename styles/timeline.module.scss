@@ -18,6 +18,7 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
 .underline::before {
   content: '';
   position: absolute;
@@ -36,4 +37,8 @@
   left: 0;
   top: 0;
   color: #fff;
+}
+
+.under:last-child() {
+  margin-bottom: none;
 }
