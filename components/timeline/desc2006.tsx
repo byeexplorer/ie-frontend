@@ -61,7 +61,6 @@ const Desc2006 = () => {
           start: 'center center',
           end: '+=300',
           scrub: true,
-          markers: true,
         },
       });
     }
@@ -69,7 +68,7 @@ const Desc2006 = () => {
 
   return (
     <>
-      {/* <!-- 2006 3D object --> */}
+      {/* <!-- 2006 3D object #1 --> */}
       <section id="fix-container">
         <div
           id="fix-box"
@@ -91,7 +90,13 @@ const Desc2006 = () => {
         <article className="bg-white">
           <div className="ml-[45%]">
             {description.map((desc, index) => (
-              <dl className={styles.under} key={index}>
+              <dl
+                className={styles.under}
+                key={index}
+                style={{
+                  marginBottom: description.length - 1 === index ? 0 : '',
+                }}
+              >
                 <dt>{desc}</dt>
                 <dd className={styles.underline} id={`under-${index}`}>
                   <span>{desc}</span>
@@ -100,6 +105,10 @@ const Desc2006 = () => {
             ))}
           </div>
         </article>
+      </section>
+      {/* <!-- 2006 3D object #2 --> */}
+      <section className="w-full py-[15%] bg-white">
+        <article className="w-full h-[425px] bg-slate-300"></article>
       </section>
     </>
   );
