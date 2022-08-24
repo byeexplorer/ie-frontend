@@ -1,4 +1,4 @@
-import { Desc2006, Time2006 } from 'components/timeline';
+import { Desc2006, Bug2006, Time2006 } from 'components/timeline';
 
 export default function MainPage() {
   return (
@@ -12,6 +12,7 @@ export default function MainPage() {
         </section>
         <Time2006 />
         <Desc2006 />
+        <Bug2006 />
       </article>
     </div>
   );
