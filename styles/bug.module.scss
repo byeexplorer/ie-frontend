@@ -1,9 +1,37 @@
-.bug1 {
+.bug1,
+.bug2,
+.bug3,
+.bug4,
+.bug5 {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+}
+
+.bug1 {
   width: 352px;
   height: 179px;
+  display: none;
+}
+
+.bug2 {
+  width: 755px;
+  height: 131px;
+  display: none;
+}
+
+.bug3 {
+  width: 440px;
+  height: 238px;
+  display: none;
+}
+
+.bug4 {
+  width: 523px;
+  height: 241px;
+  display: none;
+}
+
+.bug5 {
+  width: 419px;
+  height: 317px;
   display: none;
 }
