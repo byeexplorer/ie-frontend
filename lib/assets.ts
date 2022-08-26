@@ -7,6 +7,5 @@ export const IMAGES = {
     BUG3: getFilePath('/bugs/bug3.png'),
     BUG4: getFilePath('/bugs/bug4.png'),
     BUG5: getFilePath('/bugs/bug5.png'),
-    BUG6: getFilePath('/bugs/bug6.png'),
   },
 };

@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow: hidden;
+}
+
 html,
 body {
   padding: 0;
@@ -34,4 +38,10 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+.middle {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
