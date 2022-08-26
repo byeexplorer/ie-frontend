@@ -35,7 +35,25 @@ const Bug2006 = () => {
     tl.to('#bug11', { display: 'block', duration: 0.2 });
     tl.to('#bug12', { display: 'block', duration: 0.2 });
     tl.to('#bug13', { display: 'block', duration: 0.2 });
-    tl.to('#bug14', { display: 'block', duration: 0.2 });
+    tl.to('#bug14', { display: 'block', duration: 2 });
+
+    tl.to('#bug-container', { duration: 1, backgroundColor: '#1C1A8C', ease: 'none' });
+    tl.to('#bug14', { display: 'none', duration: 0.2 });
+    tl.to('#bug13', { display: 'none', duration: 0.2 });
+    tl.to('#bug12', { display: 'none', duration: 0.2 });
+    tl.to('#bug11', { display: 'none', duration: 0.2 });
+    tl.to('#bug10', { display: 'none', duration: 0.2 });
+    tl.to('#bug9', { display: 'none', duration: 0.2 });
+    tl.to('#bug8', { display: 'none', duration: 0.2 });
+    tl.to('#bug7', { display: 'none', duration: 0.2 });
+    tl.to('#bug6', { display: 'none', duration: 0.2 });
+    tl.to('#bug5', { display: 'none', duration: 0.2 });
+    tl.to('#bug4', { display: 'none', duration: 0.2 });
+    tl.to('#bug3', { display: 'none', duration: 0.2 });
+    tl.to('#bug2', { display: 'none', duration: 0.2 });
+    tl.to('#bug1', { display: 'none', duration: 0.2 });
+
+    tl.to('#bug-container', { duration: 1, backgroundColor: '#000000' });
   }, []);
 
   return (
@@ -100,8 +118,6 @@ const Bug2006 = () => {
           id="bug14"
         />
       </section>
-
-      {/* <section id="bug-middle-container" className="h-screen bg-[#11104D]" /> */}
     </>
   );
 };
