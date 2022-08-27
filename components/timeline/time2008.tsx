@@ -17,12 +17,12 @@ const Time2008 = () => {
     });
 
     tl.to('.title', { display: 'block', duration: 1 });
-    tl.to('#title1', { opacity: 1 });
-    tl.to('#title2', { opacity: 1 });
+    tl.to('#title1', { opacity: 1, duration: 1 });
+    tl.to('#title2', { opacity: 1, duration: 1 });
   }, []);
 
   return (
-    <>
+    <article className="bg-black pl-4 pb-6">
       {/* <!-- 2008 Title --> */}
       <section id="container" className="h-screen flex justify-center flex-col">
         <h1 id="title1" className="title text-white italic text-[7rem] leading-[70%] opacity-50 hidden">
@@ -43,7 +43,7 @@ const Time2008 = () => {
           fixing security holes and providing patches.
         </p>
       </section>
-    </>
+    </article>
   );
 };
 

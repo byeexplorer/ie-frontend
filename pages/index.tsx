@@ -13,12 +13,8 @@ export default function MainPage() {
         <Time2006 />
         <Desc2006 />
       </article>
-      <article>
-        <Bug2006 />
-      </article>
-      <article className="bg-black pl-4 pb-6">
-        <Time2008 />
-      </article>
+      <Bug2006 />
+      <Time2008 />
     </div>
   );
 }
