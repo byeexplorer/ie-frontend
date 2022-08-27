@@ -1,30 +1,27 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { memo, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Time2008 = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '#container',
         pin: true,
         start: 'top top',
-        end: '+=300',
         scrub: true,
       },
     });
-
     tl.to('.title', { display: 'block', duration: 1 });
-    tl.to('#title1', { opacity: 1, duration: 1 });
-    tl.to('#title2', { opacity: 1, duration: 1 });
+    tl.to('#title1', { autoAlpha: 1, duration: 0.5 });
+    tl.to('#title2', { autoAlpha: 1, duration: 0.5 });
   }, []);
 
   return (
-    <article className="bg-black pl-4 pb-6">
+    <article className="bg-black pl-4 pb-10" id="container">
       {/* <!-- 2008 Title --> */}
-      <section id="container" className="h-screen flex justify-center flex-col">
+      <section className="h-screen flex justify-center flex-col">
         <h1 id="title1" className="title text-white italic text-[7rem] leading-[70%] opacity-50 hidden">
           Browser
         </h1>
@@ -33,7 +30,7 @@ const Time2008 = () => {
         </h1>
       </section>
       {/* <!-- 2008 wars --> */}
-      <section className="mt-[60%]">
+      <section className="mt-[50%]">
         <h2 className="text-[5rem] leading-[70%]">2008</h2>
         <h4 className="text-[1rem] mt-3">Browser wars</h4>
         <p className="italic text-sm opacity-50 w-[90%]">
@@ -47,4 +44,4 @@ const Time2008 = () => {
   );
 };
 
-export default memo(Time2008);
+export default Time2008;
