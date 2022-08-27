@@ -1,4 +1,4 @@
-import { Desc2006, Bug2006, Time2006 } from 'components/timeline';
+import { Desc2006, Bug2006, Time2006, Time2008 } from 'components/timeline';
 
 export default function MainPage() {
   return (
@@ -13,7 +13,12 @@ export default function MainPage() {
         <Time2006 />
         <Desc2006 />
       </article>
-      <Bug2006 />
+      <article>
+        <Bug2006 />
+      </article>
+      <article className="bg-black pl-4 pb-6">
+        <Time2008 />
+      </article>
     </div>
   );
 }
