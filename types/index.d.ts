@@ -1,4 +1,6 @@
-type User = {
+type Team = {
+  id: number;
   name: string;
-  age: number;
+  job: string;
+  comment: string;
 };
