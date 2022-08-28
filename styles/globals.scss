@@ -1,5 +1,6 @@
 @import './variables';
 
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +13,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+  font-family: TimesNewRoman, 'Times New Roman', 'NanumSquare', Times, Baskerville, Georgia, serif;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
   cursor: url('/icons/cursor.svg'), auto;
