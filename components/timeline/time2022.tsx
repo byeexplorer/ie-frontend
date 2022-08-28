@@ -6,16 +6,6 @@ const Time2022 = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // gsap.to('#ending1', {
-    //   x: 100,
-    //   scrollTrigger: {
-    //     start: 'top top',
-    //     end: 'center center',
-    //     markers: true,
-    //     scrub: true,
-    //   },
-    // });
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '#ending',
@@ -25,13 +15,13 @@ const Time2022 = () => {
         pin: true,
       },
     });
-    tl.to('#ending1', { y: -20, autoAlpha: 0, delay: 1 }, '>');
-    tl.fromTo('#ending2', { y: 20, autoAlpha: 0, delay: 1 }, { y: 0, autoAlpha: 1, delay: 1 });
-    tl.to('#ending2', { y: -20, autoAlpha: 0, delay: 1 });
+    tl.to('#ending1', { y: -20, autoAlpha: 0, delay: 1.5 }, '>');
+    tl.fromTo('#ending2', { y: 20, autoAlpha: 0, delay: 1.5 }, { y: 0, autoAlpha: 1, delay: 1.5 });
+    tl.to('#ending2', { y: -20, autoAlpha: 0, delay: 1.5 });
   }, []);
 
   return (
-    <article className="bg-black text-white" id="ending">
+    <article id="ending">
       <section className="flex justify-center flex-col text-center w-screen h-screen" id="ending1">
         <h4 className="fadeout text-[1.2rem]">2022</h4>
         <p className="fadeout">
