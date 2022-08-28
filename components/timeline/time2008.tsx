@@ -19,13 +19,13 @@ const Time2008 = () => {
   }, []);
 
   return (
-    <article className="bg-black pl-4 pb-10" id="container">
+    <article className="pl-4 pb-10" id="container">
       {/* <!-- 2008 Title --> */}
       <section className="h-screen flex justify-center flex-col">
-        <h1 id="title1" className="title text-white italic text-[7rem] leading-[70%] opacity-50 hidden">
+        <h1 id="title1" className="title italic text-[7rem] leading-[70%] opacity-50 hidden">
           Browser
         </h1>
-        <h1 id="title2" className="title text-white italic text-[7rem] leading-[70%] opacity-50 hidden">
+        <h1 id="title2" className="title italic text-[7rem] leading-[70%] opacity-50 hidden">
           wars
         </h1>
       </section>
