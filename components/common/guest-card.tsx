@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import styles from 'styles/guestcard.module.scss';
 
 type Props = {
-  type: 'blue' | 'green' | 'purple' | 'indigo';
+  type: 'blue' | 'green' | 'purple' | 'gray';
   isView?: boolean;
   userName?: string;
   userComment?: string;

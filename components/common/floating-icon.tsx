@@ -25,7 +25,7 @@ const FloatingIcon = ({ src, className, toParams }: Props) => {
       },
       ...toParams,
     });
-  }, []);
+  }, [toParams]);
 
   return (
     <div className={className} id="icon">
