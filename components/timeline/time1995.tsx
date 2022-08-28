@@ -2,38 +2,44 @@ import { memo, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import { url } from 'inspector';
+
+const ANGLE = 360 / 6;
 
 const Time1995 = () => {
-  const cardsRef = useRef<HTMLDivElement | null>(null);
-  const q = gsap.utils.selector(cardsRef);
-  const angle = 360 / 6;
+  const cardWrapperRef = useRef<HTMLDivElement | null>(null);
+  const q = gsap.utils.selector(cardWrapperRef);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.set(cardsRef.current, {
-      css: { transformStyle: 'preserve-3d', perspective: 800, perspectiveOrigin: 'center 440' },
+    gsap.set(cardWrapperRef.current, {
+      css: { transformStyle: 'preserve-3d', perspective: 1000, perspectiveOrigin: 'center' },
     });
+
     gsap.set(q('#card'), {
       css: {
-        rotationY: (i: number) => i * angle,
-        transformOrigin: '50% 50% -360',
+        rotationY: (i: number) => i * ANGLE,
+        transformOrigin: '50% 50% -460',
         backfaceVisibility: 'hidden',
       },
     });
 
     gsap.to(q('#card'), {
-      rotateY: (i: number) => i * angle + 300, // 이거에 맞게 도는구나..
-      duration: 1,
-      ease: 'none',
-      scrollTrigger: { trigger: '#roller', pin: true, scrub: true, start: 'top top', end: '+=10000' },
+      rotateY: (i: number) => i * ANGLE + 300, // 이거에 맞게 도는구나..
+      scrollTrigger: {
+        trigger: '#container-1995',
+        pin: true,
+        scrub: true,
+        start: 'top top',
+        end: '+=10000',
+        immediateRender: false,
+      },
     });
 
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: '#roller',
+          trigger: '#container-1995',
           pin: true,
           scrub: true,
           start: 'top top',
@@ -41,42 +47,43 @@ const Time1995 = () => {
           immediateRender: false,
         },
       })
-      .to('#overlay', { opacity: 0 })
-      .to('#roller', { background: '#FFFFFF' })
-      .to('#roller', { background: '#FF5959' })
-      .to('#roller', { background: '#0500FF' })
-      .to('#roller', { background: '#008080' })
-      .to('#roller', { background: '#D7D7D7' });
+      .to('#overlay', { opacity: 0 }, '<')
+      .to('#container-1995', { background: '#FFFFFF' })
+      .to('#container-1995', { background: '#FF5959' })
+      .to('#container-1995', { background: '#0500FF' })
+      .to('p', { color: 'white' }, '<')
+      .to('#container-1995', { background: '#008080' })
+      .to('p', { color: 'white' }, '<')
+      .to('#container-1995', { background: '#D7D7D7' })
+      .to('p', { color: 'black' }, '<');
   }, []);
   return (
     <>
-      <div id="roller" className="w-screen h-screen bg-white">
-        <div id="overlay" className="absolute w-full h-full bg-[url('/images/BG.png')] bg-cover z-0"></div>
-        {/* <div className="w-full flex flex-col z-30">
-          <div>Microsoft Windows98</div>
-          <div>Now Released!</div>
-          <div>1995</div>
-        </div> */}
-        <div className="w-[8rem] h-full mx-auto">
-          <div id="cards" ref={cardsRef} className="h-[279]">
-            <div id="card" className="absolute h-[279] mt-24">
-              <Image src="/images/1.png" alt="" width={400} height={279} />
-            </div>
-            <div id="card" className="absolute h-[279] mt-24">
-              <Image src="/images/2.png" alt="" width={400} height={279} />
-            </div>
-            <div id="card" className="absolute h-[279] mt-24">
-              <Image src="/images/3.png" alt="" width={400} height={279} />
-            </div>
-            <div id="card" className="absolute h-[279] mt-24">
-              <Image src="/images/4.png" alt="" width={400} height={279} />
-            </div>
-            <div id="card" className="absolute h-[279] mt-24">
-              <Image src="/images/5.png" alt="" width={400} height={185} />
-            </div>
-            <div id="card" className="absolute h-[279] mt-24">
-              <Image src="/images/6.png" alt="" width={400} height={279} />
-            </div>
+      <div id="container-1995" className="w-screen h-screen bg-white">
+        <div id="overlay" className="absolute w-full h-full bg-[url('/images/BG.png')] bg-cover"></div>
+        <div id="text-wrapper" className="absolute w-full flex flex-col text-black top-5">
+          <p className="text-center text-xl">Microsoft Windows98</p>
+          <p className="text-center text-tiny">Now Released!</p>
+          <p className="text-center text-6xl">1995</p>
+        </div>
+        <div ref={cardWrapperRef} className="absolute left-1/2 ml-[-5rem] bottom-8 w-[10rem] h-[7rem]">
+          <div id="card" className="absolute w-40 h-28">
+            <Image src="/images/1.png" alt="" layout="fill" />
+          </div>
+          <div id="card" className="absolute w-40 h-28">
+            <Image src="/images/2.png" alt="" layout="fill" />
+          </div>
+          <div id="card" className="absolute w-40 h-28">
+            <Image src="/images/3.png" alt="" layout="fill" />
+          </div>
+          <div id="card" className="absolute w-40 h-28">
+            <Image src="/images/4.png" alt="" layout="fill" />
+          </div>
+          <div id="card" className="absolute w-40 h-20 top-1/2 mt-[-2.5rem]">
+            <Image src="/images/5.png" alt="" layout="fill" />
+          </div>
+          <div id="card" className="absolute w-40 h-28">
+            <Image src="/images/6.png" alt="" layout="fill" />
           </div>
         </div>
       </div>

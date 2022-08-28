@@ -16,6 +16,9 @@ module.exports = {
       translate: {
         'minus-full': '-100%',
       },
+      fontSize: {
+        tiny: '.5rem',
+      },
     },
   },
   plugins: [],
