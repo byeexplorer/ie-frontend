@@ -1,4 +1,6 @@
 import Aboutus from 'components/aboutus';
+import Guest from 'components/guest';
+import Otherpeople from 'components/otherpeople';
 import { Desc2006, Bug2006, Time2006, Time2008, Time2022 } from 'components/timeline';
 
 export default function MainPage() {
@@ -20,6 +22,9 @@ export default function MainPage() {
       <Time2022 />
       {/* <!-- Aboutus --> */}
       <Aboutus />
+      {/* <!-- Guest Explorer --> */}
+      <Guest />
+      <Otherpeople />
     </>
   );
 }

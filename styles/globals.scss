@@ -1,12 +1,11 @@
-@import './variables';
-
 @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  overflow: hidden;
+:root {
+  --blue: #3834ff;
+  --dark: #1d1e1f;
 }
 
 html,
@@ -21,6 +20,10 @@ body {
   background: #000;
   color: #fff;
   overflow-x: hidden;
+}
+
+body {
+  overflow: hidden;
 }
 
 a {

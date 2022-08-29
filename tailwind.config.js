@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         blue: '#3834FF',
+        dark: '#1d1e1f',
       },
       translate: {
         'minus-full': '-100%',
