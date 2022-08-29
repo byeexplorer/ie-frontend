@@ -16,11 +16,11 @@ const Guest = (props: Props) => {
       <h4 className="text-[26px] mt-1 mb-4">Leave a Comment</h4>
       <div className="flex gap-2 items-end">
         <EmptyCard />
-        <GuestCard type="blue" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" isView />
+        <GuestCard type="gray" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" isView />
         <EmptyCard />
       </div>
       <button
-        className={`rounded-2xl text-dark text-[26px] font-bold px-8 py-1 mt-3 ${
+        className={`rounded-2xl text-dark text-[26px] font-bold px-8 py-1 mt-6 ${
           name.length > 0 && comment.length > 0 ? 'bg-white' : 'bg-[#6c6c6c]'
         }`}
       >
