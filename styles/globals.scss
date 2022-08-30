@@ -45,6 +45,12 @@ p {
   margin: 0;
 }
 
+input,
+textarea {
+  background: transparent;
+  outline: none;
+}
+
 .middle {
   left: 50%;
   top: 50%;

@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { EmptyCard, GuestCard } from './common';
 
-type Props = {};
-
-const Guest = (props: Props) => {
+const Guest = () => {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
+
+  const onChangeValue = useCallback((type: 'name' | 'comment', value: string) => {
+    switch (type) {
+      case 'name':
+        setName(value);
+        break;
+      case 'comment':
+        setComment(value);
+        break;
+    }
+  }, []);
 
   // TODO: fetch submit
   const handleSubmit = () => {};
@@ -16,7 +25,7 @@ const Guest = (props: Props) => {
       <h4 className="text-[26px] mt-1 mb-4">Leave a Comment</h4>
       <div className="flex gap-2 items-end">
         <EmptyCard />
-        <GuestCard type="gray" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" isView />
+        <GuestCard type="gray" userName={name} userComment={comment} onChange={onChangeValue} />
         <EmptyCard />
       </div>
       <button
