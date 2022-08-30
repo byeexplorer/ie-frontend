@@ -19,6 +19,28 @@ module.exports = {
       fontSize: {
         tiny: '.5rem',
       },
+      keyframes: {
+        'slide-in': {
+          from: {
+            right: '-60%',
+          },
+          to: {
+            right: '0',
+          },
+        },
+        'slide-out': {
+          from: {
+            right: '0',
+          },
+          to: {
+            right: '-60%',
+          },
+        },
+      },
+      animation: {
+        'slide-in': 'slide-in 1s ease-in-out',
+        'slide-out': 'slide-out 1s ease-in-out',
+      },
     },
   },
   plugins: [],

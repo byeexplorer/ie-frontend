@@ -36,7 +36,7 @@ const Aboutus = () => {
   };
 
   return (
-    <article className="ml-[13%] h-screen flex justify-center flex-col">
+    <article id="host-explorer" className="ml-[13%] h-screen flex justify-center flex-col">
       <section className="mb-4">
         <h1>Host Explorer</h1>
         <h4 className="text-[26px]">About our team</h4>
