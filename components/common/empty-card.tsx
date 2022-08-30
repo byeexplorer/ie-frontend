@@ -1,8 +1,7 @@
+import { memo } from 'react';
 import styles from 'styles/guestcard.module.scss';
 
-type Props = {};
-
-const EmptyCard = (props: Props) => {
+const EmptyCard = () => {
   // TODO: carousel
   return (
     <div className={styles.empty}>
@@ -16,4 +15,4 @@ const EmptyCard = (props: Props) => {
   );
 };
 
-export default EmptyCard;
+export default memo(EmptyCard);
