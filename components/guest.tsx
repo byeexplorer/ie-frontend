@@ -20,7 +20,7 @@ const Guest = () => {
   const handleSubmit = () => {};
 
   return (
-    <section className="flex flex-col items-center mt-20">
+    <section id="guest-explorer" className="flex flex-col items-center mt-20">
       <h1 className="text-[50px] leading-[60%] mt-4">Guest Explorer</h1>
       <h4 className="text-[26px] mt-1 mb-4">Leave a Comment</h4>
       <div className="flex gap-2 items-end">
