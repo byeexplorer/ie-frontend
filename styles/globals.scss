@@ -1,15 +1,29 @@
-@import "./variables";
-
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --blue: #3834ff;
+  --dark: #1d1e1f;
+}
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: optitimes, sans-serif;
+  font-family: TimesNewRoman, 'Times New Roman', 'NanumSquare', Times, Baskerville, Georgia, serif;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
   cursor: url('/icons/cursor.svg'), auto;
+  font-size: 50px;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+body {
+  overflow: hidden;
 }
 
 a {
@@ -21,6 +35,24 @@ a {
   box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6,p{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
+}
+
+input,
+textarea {
+  background: transparent;
+  outline: none;
+}
+
+.middle {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
