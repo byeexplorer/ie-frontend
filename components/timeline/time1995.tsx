@@ -51,20 +51,27 @@ const Time1995 = () => {
       .to('#container-1995', { background: '#FFFFFF' })
       .to('#container-1995', { background: '#FF5959' })
       .to('#container-1995', { background: '#0500FF' })
-      .to('p', { color: 'white' }, '<')
+      .to('#head-1995', { color: 'white' }, '<')
       .to('#container-1995', { background: '#008080' })
-      .to('p', { color: 'white' }, '<')
+      .to('#head-1995', { color: 'white' }, '<')
       .to('#container-1995', { background: '#D7D7D7' })
-      .to('p', { color: 'black' }, '<');
-  }, []);
+      .to('#head-1995', { color: 'black' }, '<');
+  }, [q]);
+
   return (
     <>
       <div id="container-1995" className="w-screen h-screen bg-white">
         <div id="overlay" className="absolute w-full h-full bg-[url('/images/BG.png')] bg-cover"></div>
         <div id="text-wrapper" className="absolute w-full flex flex-col text-black top-5">
-          <p className="text-center text-xl">Microsoft Windows98</p>
-          <p className="text-center text-tiny">Now Released!</p>
-          <p className="text-center text-6xl">1995</p>
+          <p id="head-1995" className="text-center text-xl">
+            Microsoft Windows98
+          </p>
+          <p id="head-1995" className="text-center text-tiny">
+            Now Released!
+          </p>
+          <p id="head-1995" className="text-center text-6xl">
+            1995
+          </p>
         </div>
         <div ref={cardWrapperRef} className="absolute left-1/2 ml-[-5rem] bottom-8 w-[10rem] h-[7rem]">
           <div id="card" className="absolute w-40 h-28">
