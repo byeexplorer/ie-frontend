@@ -7,6 +7,7 @@ import { Desc2006, Bug2006, Time2006, Time2008, Time2022, Time1995 } from 'compo
 export default function MainPage() {
   return (
     <>
+      <h1>QA</h1>
       {/* <!-- Timeline --> */}
       <Navbar />
       <Time1995 />
