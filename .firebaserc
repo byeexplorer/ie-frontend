@@ -9,7 +9,7 @@
           "bye-explorer"
         ],
         "dev": [
-          "dev-bye-explorer"
+          "qa-bye-explorer"
         ]
       }
     }

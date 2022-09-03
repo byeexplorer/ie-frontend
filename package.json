@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:master": "next build && next export -o dist/master",
+    "build:qa": "next build && next export -o dist/dev",
     "start": "next start",
-    "lint": "next lint",
-    "export:main": "next export -o dist/main",
-    "export:dev": "next export -o dist/dev"
+    "lint": "next lint"
   },
   "dependencies": {
     "@react-three/drei": "^9.13.0",
