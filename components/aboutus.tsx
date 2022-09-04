@@ -57,8 +57,10 @@ const Aboutus = () => {
                 onClick={(e) => {
                   handleSelect(team.id);
                 }}
-                className={`border-b-[2px] ${
-                  target.id === team.id ? 'border-white' : 'border-[#444444] text-[#444444]'
+                className={`border-b-[2px] border-[#444444] relative ${
+                  target.id === team.id
+                    ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:border-b-[2px] after:animate-width-full after:transition-all"
+                    : 'text-[#444444]'
                 }`}
               >
                 {team.name}
