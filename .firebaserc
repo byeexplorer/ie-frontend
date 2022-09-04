@@ -8,7 +8,7 @@
         "main": [
           "bye-explorer"
         ],
-        "dev": [
+        "qa": [
           "qa-bye-explorer"
         ]
       }

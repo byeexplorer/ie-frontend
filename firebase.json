@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "dev",
-      "public": "dist/dev",
+      "target": "main",
+      "public": "dist/master",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -12,8 +12,8 @@
       ]
     },
     {
-      "target": "main",
-      "public": "dist/master",
+      "target": "qa",
+      "public": "dist/qa",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
