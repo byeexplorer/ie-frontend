@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 type Props = {
   className: string;
@@ -8,12 +8,11 @@ type Props = {
   alt?: string;
 };
 
-const ImageWrapper = ({ className, src, alt, id }: Props) => {
-  return (
-    <div className={className} id={id}>
-      <Image src={src} alt={alt ? alt : 'image'} layout="fill" />
-    </div>
-  );
-};
+const ImageWrapper = forwardRef<HTMLDivElement, Props>(({ className, src, alt, id }, ref) => (
+  <div className={className} id={id} ref={ref}>
+    <Image src={src} alt={alt ? alt : 'image'} layout="fill" />
+  </div>
+));
 
+ImageWrapper.displayName = 'ImageWrapper';
 export default memo(ImageWrapper);
