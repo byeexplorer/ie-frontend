@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GuestCard from './common/guest-card';
 
 type Props = {};
 
 // @FIXME
-const Otherpeople = (props: Props) => {
+const Otherpeople = ({}: Props) => {
+  //TODO: fetch real comments data
+  const [comments, setComments] = useState<CommentRes[]>([]);
+
   return (
     <section>
       <h1>You can see other people!</h1>
@@ -12,7 +15,7 @@ const Otherpeople = (props: Props) => {
       {/* <GuestCard type="blue" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" />
       <GuestCard type="gray" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" />
       <GuestCard type="purple" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" /> */}
-    </section>
+    </article>
   );
 };
 
