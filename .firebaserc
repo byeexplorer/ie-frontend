@@ -5,11 +5,11 @@
   "targets": {
     "bye-explorer": {
       "hosting": {
-        "main": [
-          "bye-explorer"
-        ],
         "qa": [
           "qa-bye-explorer"
+        ],
+        "master": [
+          "bye-explorer"
         ]
       }
     }
