@@ -38,7 +38,6 @@ const Navbar = () => {
     };
   }, [isOpen, isSlideIn]);
 
-  console.log('render');
   return (
     <div>
       <section

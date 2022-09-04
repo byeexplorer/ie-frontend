@@ -4,8 +4,7 @@
 name: QA/PR - Deploy to Firebase Hosting
 'on':
   pull_request:
-    branches:
-      - qa
+    branches: [qa, dev]
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'

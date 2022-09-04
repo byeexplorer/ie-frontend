@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GuestCard from './common/guest-card';
 
 type Props = {};
 
 // @FIXME
-const Otherpeople = (props: Props) => {
+const Otherpeople = ({}: Props) => {
+  //TODO: fetch real comments data
+  const [comments, setComments] = useState<CommentRes[]>([]);
+
   return (
     <section>
       <h1>You can see other people!</h1>
