@@ -6,29 +6,31 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 interface Props {
   src: string;
   className?: string;
+  id?: string;
   toParams: GSAPTweenVars;
 }
 
-const FloatingIcon = ({ src, className, toParams }: Props) => {
+const FloatingIcon = ({ src, className, toParams, id = 'section2' }: Props) => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from('#icon', {
-      y: 0,
-    });
-    gsap.to('#icon', {
-      rotate: 90,
-      scrollTrigger: {
-        trigger: '#icon',
-        start: 'top center',
-        scrub: 1,
-      },
-      ...toParams,
-    });
-  }, [toParams]);
+    gsap.fromTo(
+      `#${id}`,
+      { y: 0 },
+      {
+        rotate: 90,
+        scrollTrigger: {
+          trigger: `#${id}`,
+          start: 'top center',
+          scrub: 1,
+        },
+        ...toParams,
+      }
+    );
+  }, [toParams, id]);
 
   return (
-    <div className={className} id="icon">
+    <div className={className} id={id}>
       <Image src={src} alt="icon" width={72} height={72} />
     </div>
   );

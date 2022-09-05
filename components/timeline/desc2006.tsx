@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from 'styles/timeline.module.scss';
@@ -17,38 +17,44 @@ const description = [
 ];
 
 const Desc2006 = () => {
+  const container = useRef<HTMLElement>(null);
+  const background = useRef<HTMLDivElement>(null);
+
+  const header1 = useRef<HTMLHeadingElement>(null);
+  const header2 = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const rowSection = gsap.utils.toArray('#row');
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        pin: true,
+        start: 'top top',
+        end: '+=400% bottom',
+        scrub: true,
+      },
+    });
+    tl.fromTo(background.current, { x: '100%' }, { x: '0' });
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '#row',
-          pin: true,
-          start: 'top top',
-          scrub: true,
-        },
-      })
-      .to(rowSection, { xPercent: -100, ease: 'Power0.easeNone' });
-
-    gsap.to('#text-1', {
+    gsap.set(header1.current, { x: 400 });
+    gsap.to(header1.current, {
       x: 0,
       scrollTrigger: {
-        trigger: '#text-1',
-        start: 'center end',
-        end: '+=500',
+        trigger: header1.current,
+        start: 'center top',
+        end: '+=300% top',
         scrub: true,
       },
     });
 
-    gsap.to('#text-2', {
+    gsap.set(header2.current, { x: 500 });
+    gsap.to(header2.current, {
       x: 0,
       scrollTrigger: {
-        trigger: '#text-2',
-        start: 'top end',
-        end: '+=500',
+        trigger: header2.current,
+        start: 'bottom top',
+        end: '+=500% top',
         scrub: true,
       },
     });
@@ -67,24 +73,26 @@ const Desc2006 = () => {
   }, []);
 
   return (
-    <>
+    <article className="bg-blue pt-[30vw] ">
       {/* <!-- 2006 3D object #1 --> */}
       <section id="fix-container">
         <div
           id="fix-box"
-          className="w-[30vw] h-[30vw] bg-slate-400"
-          style={{ marginBottom: 'calc((100vh - 30vw) / 2)', marginTop: 'calc((100vh - 30vw) / 2)' }}
+          className="w-full h-[30vw] bg-slate-400"
+          style={{ marginBottom: 'calc((100vh - 30vw) / 2)' }}
         />
       </section>
       {/* <!-- 2006 Description --> */}
       <section className="w-full text-blue">
-        <article id="row" className="w-[100vw] h-[130vh] bg-white translate-x-full">
-          <h1 className="text-5xl ml-5 pt-10 translate-x-full" id="text-1">
-            The Hiatus and Security
-          </h1>
-          <div className="flex ml-5 translate-x-full" id="text-2">
-            <h1 className="text-5xl mt-3 mr-4">Troubles</h1>
-            <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
+        <article className="w-[100vw] h-[100vh] relative" ref={container}>
+          <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
+            <h1 className="text-5xl ml-5 pt-10" ref={header1}>
+              The Hiatus and Security
+            </h1>
+            <div className="flex ml-5" id="text-2" ref={header2}>
+              <h1 className="text-5xl mt-3 mr-4">Troubles</h1>
+              <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
+            </div>
           </div>
         </article>
         <article className="bg-white">
@@ -110,7 +118,7 @@ const Desc2006 = () => {
       <section className="w-full py-[15%] bg-white">
         <article className="w-full h-[425px] bg-slate-300"></article>
       </section>
-    </>
+    </article>
   );
 };
 
