@@ -15,5 +15,6 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BYE_EXPLORER }}'
-          channelId: master
+          channelId: live
           projectId: bye-explorer
+          target: master
