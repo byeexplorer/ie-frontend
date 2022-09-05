@@ -72,8 +72,70 @@ const Time2006 = () => {
   }, []);
 
   return (
-    <>
+    <article className="bg-blue grid place-items-center">
       {/* <!-- 2006 Description --> */}
+      <section className="text-xs font-thin leading-[140%] pb-[30%] text-center relative pt-[20%] w-full">
+        <FloatingIcon
+          src={'/icons/computer.svg'}
+          className="absolute right-[10rem] top-[4rem]"
+          toParams={{ y: '-100' }}
+          id="com1"
+        />
+        <FloatingIcon
+          src={'/icons/computer.svg'}
+          className="absolute left-[1rem] bottom-[4rem]"
+          toParams={{ y: '-160', rotate: 80 }}
+          id="com2"
+        />
+        <FloatingIcon
+          src={'/icons/tree.svg'}
+          className="absolute right-[2rem] top-[2.3rem]"
+          toParams={{ y: '-200', rotate: 100 }}
+          id="tree1"
+        />
+        <FloatingIcon
+          src={'/icons/tree.svg'}
+          className="absolute left-[3rem] bottom-[8rem]"
+          toParams={{ y: '-80', rotate: 30 }}
+          id="tree2"
+        />
+        <FloatingIcon
+          src={'/icons/memo.svg'}
+          className="absolute left-[2.2rem] top-[4rem]"
+          toParams={{ y: '-40', rotate: -10 }}
+          id="memo1"
+        />
+        <FloatingIcon
+          src={'/icons/memo.svg'}
+          className="absolute right-[13rem] bottom-[5rem]"
+          toParams={{ y: '-170', rotate: -42 }}
+          id="memo2"
+        />
+        <FloatingIcon
+          src={'/icons/draw.svg'}
+          className="absolute left-[6rem] top-[1.7rem]"
+          toParams={{ y: '-72', rotate: -18 }}
+          id="draw1"
+        />
+        <FloatingIcon
+          src={'/icons/draw.svg'}
+          className="absolute right-[3rem] bottom-[6rem]"
+          toParams={{ y: '-142', rotate: 70 }}
+          id="draw2"
+        />
+        <FloatingIcon
+          src={'/icons/folder.svg'}
+          className="absolute right-[5rem] bottom-[1.8rem]"
+          toParams={{ y: '-142', rotate: 74 }}
+          id="folder1"
+        />
+        <p>
+          In July 1995 Microsoft released Internet Explorer 1.0
+          <br /> as an add-on to the Windows 95 operating system.
+          <br /> In July 1995 Microsoft released Internet Explorer 1.0
+          <br /> as an add-on to the Windows 95 operating system.
+        </p>
+      </section>
       <section className="bg-blue flex justify-center gap-6 mt-5 relative mb-10">
         <FloatingIcon src={'/icons/book.svg'} className="absolute left-[6rem]" toParams={{ y: '-100' }} />
         <FloatingIcon
@@ -114,7 +176,7 @@ const Time2006 = () => {
           6
         </span>
       </section>
-    </>
+    </article>
   );
 };
 

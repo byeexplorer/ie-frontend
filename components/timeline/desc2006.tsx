@@ -67,13 +67,13 @@ const Desc2006 = () => {
   }, []);
 
   return (
-    <>
+    <article className="bg-blue pt-[30vw] ">
       {/* <!-- 2006 3D object #1 --> */}
       <section id="fix-container">
         <div
           id="fix-box"
-          className="w-[30vw] h-[30vw] bg-slate-400"
-          style={{ marginBottom: 'calc((100vh - 30vw) / 2)', marginTop: 'calc((100vh - 30vw) / 2)' }}
+          className="w-full h-[30vw] bg-slate-400"
+          style={{ marginBottom: 'calc((100vh - 30vw) / 2)' }}
         />
       </section>
       {/* <!-- 2006 Description --> */}
@@ -110,7 +110,7 @@ const Desc2006 = () => {
       <section className="w-full py-[15%] bg-white">
         <article className="w-full h-[425px] bg-slate-300"></article>
       </section>
-    </>
+    </article>
   );
 };
 
