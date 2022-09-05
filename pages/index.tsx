@@ -9,7 +9,8 @@ export default function MainPage() {
     <>
       {/* <!-- Timeline --> */}
       <Navbar />
-      <Time1995 />
+      {/* 
+      <Time1995 /> */}
       <Time2006 />
       <Desc2006 />
       <Bug2006 />
