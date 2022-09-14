@@ -24,18 +24,6 @@ const Time1995 = () => {
       },
     });
 
-    gsap.to(q('#card'), {
-      rotateY: (i: number) => i * ANGLE + 300, // 이거에 맞게 도는구나..
-      scrollTrigger: {
-        trigger: '#container-1995',
-        pin: true,
-        scrub: true,
-        start: 'top top',
-        end: '+=10000',
-        immediateRender: false,
-      },
-    });
-
     gsap
       .timeline({
         scrollTrigger: {
@@ -47,21 +35,36 @@ const Time1995 = () => {
           immediateRender: false,
         },
       })
-      .to('#overlay', { opacity: 0 }, '<')
+      .fromTo('#container-1995', { opacity: 0 }, { opacity: 1 }, '1')
       .to('#container-1995', { background: '#FFFFFF' })
+      .to('#overlay', { opacity: 0 }, '<')
+      .to(q('#card'), { rotateY: (i) => i * ANGLE + 60, ease: 'linear' }, '<')
       .to('#container-1995', { background: '#FF5959' })
+      .to(q('#card'), { rotateY: (i) => i * ANGLE + 120, ease: 'linear' }, '<')
       .to('#container-1995', { background: '#0500FF' })
       .to('#head-1995', { color: 'white' }, '<')
+      .to(q('#card'), { rotateY: (i) => i * ANGLE + 180, ease: 'linear' }, '<')
       .to('#container-1995', { background: '#008080' })
       .to('#head-1995', { color: 'white' }, '<')
+      .to(q('#card'), { rotateY: (i) => i * ANGLE + 240, ease: 'linear' }, '<')
       .to('#container-1995', { background: '#D7D7D7' })
-      .to('#head-1995', { color: 'black' }, '<');
+      .to('#head-1995', { color: 'black' }, '<')
+      .to(q('#card'), { rotateY: (i) => i * ANGLE + 300, ease: 'linear' }, '<');
   }, [q]);
 
   return (
     <>
       <div id="container-1995" className="w-screen h-screen bg-white">
         <div id="overlay" className="absolute w-full h-full bg-[url('/images/BG.png')] bg-cover"></div>
+        <div id="overlay" className="absolute w-full h-full">
+          <Image
+            src="/images/BG.png"
+            alt="Windows' most famous wallpaper"
+            layout="fill"
+            objectFit="cover"
+            priority
+          ></Image>
+        </div>
         <div id="text-wrapper" className="absolute w-full flex flex-col text-black top-5">
           <p id="head-1995" className="text-center text-xl">
             Microsoft Windows98
