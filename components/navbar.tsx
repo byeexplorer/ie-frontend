@@ -44,10 +44,9 @@ const Navbar = () => {
         id="navbar"
         className="fixed top-0 left-0 w-full z-20 flex justify-between text-blue px-[0.75rem] pt-[0.15rem]"
       >
-        <button id="navbar-icon" className="">
-          아이콘
-        </button>
-        <button id="menu" className="" onClick={handleBtnClick}>
+        {/* TODO: 네브바 아이콘으로 변환, 1995 타임라인에서 그라데이션 */}
+        <button id="navbar-icon">아이콘</button>
+        <button id="menu" onClick={handleBtnClick}>
           햄버거
         </button>
       </section>
@@ -58,7 +57,11 @@ const Navbar = () => {
           }`}
         >
           {MENU.map((item) => (
-            <li key={item.selector} onClick={() => gsap.to(window, { scrollTo: item.selector })}>
+            <li
+              className="hover:italic"
+              key={item.selector}
+              onClick={() => gsap.to(window, { scrollTo: item.selector })}
+            >
               {item.menu}
             </li>
           ))}
