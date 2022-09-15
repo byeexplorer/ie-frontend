@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React, { useCallback, useState } from 'react';
 import { GuestCard } from './common';
+import styles from 'styles/guestcard.module.scss';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
 const cardModel: CardModel[] = ['ie-95', 'ie-edge1', 'ie-97', 'ie-edge2'];
@@ -71,7 +72,7 @@ const Guest = () => {
               userComment={comment.length === 0 ? 'Write down your own message to Internet Explorer.' : comment}
             />
           </article>
-          <article className="flex flex-col">
+          <article className="flex flex-col mt-3">
             <h2 className="text-[20px] mb-1">Leave a message</h2>
             <input
               type="text"
@@ -79,17 +80,20 @@ const Guest = () => {
               placeholder="Name"
               className="bg-black rounded-md text-[16px] p-1 mb-1 placeholder:text-[#646464]"
               onChange={(e) => setName(e.target.value)}
-              maxLength={10}
+              maxLength={20}
             />
-            <textarea
-              value={comment}
-              cols={5}
-              rows={4}
-              placeholder="Write down your own message to Internet Explorer."
-              className="bg-black rounded-md text-[16px] p-1 resize-none placeholder:text-[#646464]"
-              onChange={(e) => setComment(e.target.value)}
-              maxLength={140}
-            />
+            <div className="relative w-full">
+              <textarea
+                value={comment}
+                cols={5}
+                rows={4}
+                placeholder="Write down your own message to Internet Explorer."
+                className={styles.commentarea}
+                onChange={(e) => setComment(e.target.value)}
+                maxLength={100}
+              />
+              <span className="absolute bottom-[20%] right-2 text-[#646464] text-[13px]">{comment.length}/100</span>
+            </div>
           </article>
         </section>
       </main>
