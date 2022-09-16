@@ -66,8 +66,13 @@
 
       h3 {
         font-size: 22px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       p {
+        margin-top: 10px;
         font-size: 18px;
         text-align: left;
         width: 100%;
@@ -75,7 +80,7 @@
         overflow: hidden;
         //TODO: do work ellipsis !!
         text-overflow: ellipsis;
-        white-space: pre-line;
+        white-space: pre;
       }
     }
   }
@@ -120,4 +125,31 @@
 }
 .profile-gray {
   border: 0.698073px solid #a8a8a8;
+}
+
+.commentarea {
+  width: 100%;
+  background: #000;
+  border-radius: 0.375rem;
+  font-size: 16px;
+  padding: 1em;
+  resize: none;
+  ::placeholder {
+    color: #646464;
+  }
+  &::-webkit-scrollbar {
+    margin-right: 10px;
+    border-radius: 0.375rem;
+    width: 20px;
+    padding: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 2px;
+    margin-right: 10px;
+    height: 70%;
+    border: 6px solid black;
+    background: #181818;
+    border-radius: 0.375rem;
+    padding: 20px;
+  }
 }
