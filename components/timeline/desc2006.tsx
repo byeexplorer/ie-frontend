@@ -76,11 +76,22 @@ const Desc2006 = () => {
     <article className="bg-blue pt-[30vw] ">
       {/* <!-- 2006 3D object #1 --> */}
       <section id="fix-container">
-        <div
+        <video
+          src="/under2006.mp4"
+          loop={true}
+          autoPlay={true}
+          controls={false}
+          muted={true}
+          playsInline={true}
+          className="w-full h-[30vw]"
+        >
+          {/* <source src="/under2006.mp4" /> */}
+        </video>
+        {/* <div
           id="fix-box"
           className="w-full h-[30vw] bg-slate-400"
           style={{ marginBottom: 'calc((100vh - 30vw) / 2)' }}
-        />
+        /> */}
       </section>
       {/* <!-- 2006 Description --> */}
       <section className="w-full text-blue">

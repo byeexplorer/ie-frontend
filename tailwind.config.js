@@ -10,8 +10,9 @@ module.exports = {
         '[279]': `${280 / 50}rem`,
       },
       colors: {
-        blue: '#3834FF',
+        blue: '#3834ff',
         dark: '#1d1e1f',
+        lightdark: '#181818',
       },
       translate: {
         'minus-full': '-100%',
