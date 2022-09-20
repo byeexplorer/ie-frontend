@@ -77,7 +77,7 @@ const Desc2006 = () => {
       {/* <!-- 2006 3D object #1 --> */}
       <section id="fix-container">
         <video
-          src="/under2006.mp4"
+          src="videos/under2006.mp4"
           loop={true}
           autoPlay={true}
           controls={false}
