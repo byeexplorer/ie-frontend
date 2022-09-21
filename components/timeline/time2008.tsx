@@ -1,11 +1,15 @@
 import { ImageWrapper } from 'components/common';
-import { gsap, Linear } from 'gsap';
+import Cursor from 'components/common/cursor';
+import Portal from 'components/common/portal';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { IMAGES } from 'lib/assets';
 import { useEffect, useRef, useState } from 'react';
 import styles from 'styles/timeline.module.scss';
+import { useInView } from 'react-intersection-observer';
 
 const Time2008 = () => {
+  const { ref, inView } = useInView();
   const [explorerHover, setExplorerHover] = useState(false);
   const [otherHover, setOtherHover] = useState(false);
 
@@ -62,8 +66,13 @@ const Time2008 = () => {
   const handleExplorerMouseLeave = () => setExplorerHover(false);
 
   return (
-    <article className="pl-4 pb-10 pr-2" id="container">
+    <article className="relative pl-4 pb-10 pr-2 cursor-none" id="container" ref={ref}>
       {/* <!-- 2008 Title --> */}
+      {inView && (
+        <Portal>
+          <Cursor />
+        </Portal>
+      )}
       <section className="h-screen flex justify-center flex-col">
         <h1 id="title1" className="title italic text-[7rem] leading-[70%] opacity-50 hidden">
           Browser
