@@ -27,9 +27,9 @@ const Overview = () => {
   }, []);
   return (
     <article id="overview">
-      <section id="scene">
+      {/* <section id="scene">
         <Scene />
-      </section>
+      </section> */}
       <section id="intro" className="relative">
         <div className="absolute w-screen h-screen flex justify-center items-center">
           <p className="text-[1.6rem] leading-[2.2rem] text-center">
