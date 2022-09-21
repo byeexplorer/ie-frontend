@@ -10,6 +10,7 @@ const Time1995 = () => {
   const q = gsap.utils.selector(cardWrapperRef);
 
   useEffect(() => {
+    ScrollTrigger.refresh();
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.set(cardWrapperRef.current, {
@@ -55,7 +56,6 @@ const Time1995 = () => {
   return (
     <>
       <div id="container-1995" className="w-screen h-screen bg-white">
-        <div id="overlay" className="absolute w-full h-full bg-[url('/images/BG.png')] bg-cover"></div>
         <div id="overlay" className="absolute w-full h-full">
           <Image
             src="/images/BG.png"

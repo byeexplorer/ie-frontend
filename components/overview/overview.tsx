@@ -16,7 +16,7 @@ const Overview = () => {
         end: '+=5000',
         pin: true,
         scrub: 0.3,
-        markers: true,
+        // markers: process.env.NODE_ENV === 'development',
       },
     });
 
@@ -27,7 +27,7 @@ const Overview = () => {
   }, []);
   return (
     <article id="overview">
-      <section id="scene" className="w-screen h-screen">
+      <section id="scene">
         <Scene />
       </section>
       <section id="intro" className="relative">
