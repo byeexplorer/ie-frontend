@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React, { useCallback, useState } from 'react';
 import { GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
+import { postComments } from 'lib/api';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
 const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
@@ -13,9 +14,28 @@ const Guest = () => {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
 
-  // TODO: fetch submit
+  const resetSubmit = useCallback(() => {
+    setColor('blue');
+    setModel('oldest');
+    setName('');
+    setComment('');
+  }, []);
+
+  const createComment = useCallback(async () => {
+    const status = await postComments({ color, comment, name, obj: model });
+
+    if (status && status === 201) {
+      //TODO: change to success icon
+      alert('전송 성공!');
+      resetSubmit();
+    }
+  }, [color, comment, name, model, resetSubmit]);
+
   const handleSubmit = () => {
-    alert('준비중입니다.');
+    if (!name || !comment) {
+      return;
+    }
+    createComment();
   };
 
   const handleColorClick = useCallback((value: CardColor) => setColor(value), []);

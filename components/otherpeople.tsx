@@ -1,5 +1,5 @@
-import { getComments } from 'lib/api';
-import React, { useEffect, useState } from 'react';
+import { getComments, postComments } from 'lib/api';
+import React, { useCallback, useEffect, useState } from 'react';
 import { GuestCard } from './common';
 
 type Props = {};
@@ -8,15 +8,15 @@ const Otherpeople = ({}: Props) => {
   //TODO: fetch real comments data
   const [comments, setComments] = useState<CommentRes[]>([]);
 
+  const fetchComments = useCallback(async () => {
+    const res = await getComments();
+
+    if (res) {
+      setComments(res);
+    }
+  }, []);
+
   useEffect(() => {
-    const fetchComments = async () => {
-      const res = await getComments();
-
-      if (res) {
-        setComments(res);
-      }
-    };
-
     fetchComments();
   }, []);
 
