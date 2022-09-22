@@ -12,13 +12,12 @@ type Props = {
 };
 
 const GuestCard = ({ type, small, model, userComment, userName }: Props) => {
-  // TODO: check overflow & text max length
   return (
     <div className={`${styles.guestcard} ${small ? styles.small : ''}`}>
       <section className={`${styles.gradient} ${styles[type]}`} />
       <section>
         <div className={`${styles.profile} ${styles['profile-' + type]}`}>
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full aspect-square">
             <Image src={model} alt="model" layout="fill" />
           </div>
         </div>
