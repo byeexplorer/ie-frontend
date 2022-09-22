@@ -16,7 +16,9 @@ export default function MainPage() {
       <Time2006 />
       <Desc2006 />
       <Bug2006 />
-      <Time2008 />
+      <div id="cursor-portal">
+        <Time2008 />
+      </div>
       <Time2022 />
       {/* <!-- Aboutus --> */}
       <Aboutus />
