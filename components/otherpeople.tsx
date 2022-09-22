@@ -1,24 +1,12 @@
 import { getComments, postComments } from 'lib/api';
+import { CommentContext, useComment, useCommentStore } from 'lib/hooks';
 import React, { useCallback, useEffect, useState } from 'react';
 import { GuestCard } from './common';
 
 type Props = {};
 
 const Otherpeople = ({}: Props) => {
-  //TODO: fetch real comments data
-  const [comments, setComments] = useState<CommentRes[]>([]);
-
-  const fetchComments = useCallback(async () => {
-    const res = await getComments();
-
-    if (res) {
-      setComments(res);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
+  const { comments } = useCommentStore();
 
   return (
     <section>

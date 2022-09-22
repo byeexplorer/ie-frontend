@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
 import { postComments } from 'lib/api';
+import { useCommentStore } from 'lib/hooks';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
 const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
@@ -10,9 +11,10 @@ const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
 const Guest = () => {
   const [color, setColor] = useState<CardColor>('blue');
   const [model, setModel] = useState<CardModel>('oldest');
-
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
+
+  const { fetchComments } = useCommentStore();
 
   const resetSubmit = useCallback(() => {
     setColor('blue');
@@ -27,9 +29,10 @@ const Guest = () => {
     if (status && status === 201) {
       //TODO: change to success icon
       alert('전송 성공!');
+      fetchComments();
       resetSubmit();
     }
-  }, [color, comment, name, model, resetSubmit]);
+  }, [color, comment, name, model, resetSubmit, fetchComments]);
 
   const handleSubmit = () => {
     if (!name || !comment) {
@@ -40,6 +43,10 @@ const Guest = () => {
 
   const handleColorClick = useCallback((value: CardColor) => setColor(value), []);
   const handleModelClick = useCallback((value: CardModel) => setModel(value), []);
+
+  useEffect(() => {
+    fetchComments();
+  }, [fetchComments]);
 
   return (
     <section id="guest-explorer" className="flex flex-col items-center mt-20">
