@@ -4,11 +4,11 @@ import { GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
-const cardModel: CardModel[] = ['ie-95', 'ie-edge1', 'ie-97', 'ie-edge2'];
+const cardModel: CardModel[] = ['oldest', 'explorer', 'edge', 'newest'];
 
 const Guest = () => {
   const [color, setColor] = useState<CardColor>('blue');
-  const [model, setModel] = useState<CardModel>('ie-95');
+  const [model, setModel] = useState<CardModel>('oldest');
 
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
