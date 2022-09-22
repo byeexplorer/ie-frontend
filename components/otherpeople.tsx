@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import GuestCard from './common/guest-card';
 
 type Props = {};
 
-// @FIXME
 const Otherpeople = ({}: Props) => {
   //TODO: fetch real comments data
   const [comments, setComments] = useState<CommentRes[]>([]);
