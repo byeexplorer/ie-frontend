@@ -4,7 +4,7 @@ import { GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
-const cardModel: CardModel[] = ['oldest', 'explorer', 'edge', 'newest'];
+const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
 
 const Guest = () => {
   const [color, setColor] = useState<CardColor>('blue');
