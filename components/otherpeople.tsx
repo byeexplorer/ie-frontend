@@ -1,41 +1,80 @@
-import { getComments, postComments } from 'lib/api';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCommentStore } from 'lib/hooks';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { GuestCard } from './common';
+import ArrowIcon from './common/arrow-icon';
 
-type Props = {};
+import { FreeMode } from 'swiper';
 
-const Otherpeople = ({}: Props) => {
-  //TODO: fetch real comments data
-  const [comments, setComments] = useState<CommentRes[]>([]);
+import 'swiper/css';
 
-  const fetchComments = useCallback(async () => {
-    const res = await getComments();
+const test: Omit<CommentRes, 'id'>[] = [
+  {
+    color: 'blue',
+    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
+    createdAt: '2022.12.12',
+    name: 'nadsfnasdf',
+    obj: 'newest',
+  },
+  {
+    color: 'gray',
+    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
+    createdAt: '2022.12.12',
+    name: 'nadsfnasdf',
+    obj: 'explorer',
+  },
+  {
+    color: 'purple',
+    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
+    createdAt: '2022.12.12',
+    name: 'nadsfnasdf',
+    obj: 'edge',
+  },
+  {
+    color: 'green',
+    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
+    createdAt: '2022.12.12',
+    name: 'nadsfnasdf',
+    obj: 'oldest',
+  },
+];
 
-    if (res) {
-      setComments(res);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
+const Otherpeople = () => {
+  const { comments } = useCommentStore();
 
   return (
-    <section>
+    <section className="w-full text-center pt-[15%] pb-[3%] flex flex-col items-center">
       <h1>You can see other people!</h1>
-      <p className="text-[15px]">작업중입니다.</p>
-      {comments.map((comment, index) => (
-        <div key={index}>
-          {comment.color}
-          {comment.comment}
-          {comment.name}
-          {comment.createdAt}
-        </div>
-        // <GuestCard type={comment.obj} userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" />
-      ))}
-      {/*
-      <GuestCard type="gray" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" />
-      <GuestCard type="purple" userName="황예나" userComment="와 페이지 너무 이뻐요~ 와 페이지 너무 이뻐요~" /> */}
+      <h2 className="text-[1.5vw] mb-10">{comments.length} people left comments.</h2>
+      <Swiper
+        className="flex flex-nowrap max-w-[100vw] h-fix overflow-auto"
+        style={{ padding: '1.5rem 0' }}
+        slidesPerView={5}
+        spaceBetween={0}
+        freeMode={true}
+        modules={[FreeMode]}
+      >
+        {comments.map((comment, i) => (
+          <SwiperSlide key={comment.id}>
+            <GuestCard
+              {...comment}
+              className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
+            />
+          </SwiperSlide>
+        ))}
+        {test.map((v, i) => (
+          <SwiperSlide key={i}>
+            <GuestCard
+              {...v}
+              key={i}
+              className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <article className="flex gap-2 mt-10">
+        <ArrowIcon className="rotate-180" />
+        <ArrowIcon />
+      </article>
     </section>
   );
 };

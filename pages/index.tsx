@@ -4,6 +4,7 @@ import Navbar from 'components/navbar';
 import Otherpeople from 'components/otherpeople';
 import Overview from 'components/overview/overview';
 import { Desc2006, Bug2006, Time2006, Time2008, Time2022, Time1995 } from 'components/timeline';
+import { CommentContext, useComment } from 'lib/hooks';
 
 export default function MainPage() {
   return (
@@ -21,8 +22,10 @@ export default function MainPage() {
       {/* <!-- Aboutus --> */}
       <Aboutus />
       {/* <!-- Guest Explorer --> */}
-      <Guest />
-      <Otherpeople />
+      <CommentContext.Provider value={useComment()}>
+        <Guest />
+        <Otherpeople />
+      </CommentContext.Provider>
     </>
   );
 }
