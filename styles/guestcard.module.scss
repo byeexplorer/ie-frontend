@@ -75,7 +75,9 @@
 
       h3 {
         // font-size: 22px;
+        flex: none;
         font-size: 1.3vw;
+        line-height: 1.5vw;
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -89,7 +91,6 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        //TODO: do work ellipsis !!
         text-overflow: ellipsis;
         white-space: pre;
       }
