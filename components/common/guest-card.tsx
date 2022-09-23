@@ -1,31 +1,30 @@
-import { formatToDate } from 'lib/utils';
 import Image from 'next/image';
 import { memo } from 'react';
 import styles from 'styles/guestcard.module.scss';
 
-type Props = {
-  type: CardColor;
-  userName: string;
-  userComment: string;
-  model: string;
+type Props = Omit<CommentRes, 'id' | 'createdAt'> & {
   small?: boolean;
+  createdAt?: string;
+  className?: string;
 };
 
-const GuestCard = ({ type, small, model, userComment, userName }: Props) => {
+const GuestCard = ({ color, comment, createdAt, name, obj, small, className }: Props) => {
   return (
-    <div className={`${styles.guestcard} ${small ? styles.small : ''}`}>
-      <section className={`${styles.gradient} ${styles[type]}`} />
+    <div className={`${styles.guestcard} ${small ? styles.small : ''} ${className}`}>
+      <section className={`${styles.gradient}`}>
+        <div className={styles[color]} />
+      </section>
       <section>
-        <div className={`${styles.profile} ${styles['profile-' + type]}`}>
+        <div className={`${styles.profile} ${styles['profile-' + color]}`}>
           <div className="relative w-full h-full aspect-square">
-            <Image src={model} alt="model" layout="fill" />
+            <Image src={`/images/models/${obj}-${color}.png`} alt="object" layout="fill" />
           </div>
         </div>
         <article>
-          <h3>{userName}</h3>
-          <p>{userComment}</p>
+          <h3>{name}</h3>
+          <p>{comment}</p>
         </article>
-        {!small && <p className="text-right text-[0.9vw] mt-[3px]">{formatToDate(new Date())}</p>}
+        {createdAt && <p className="text-right text-[0.9vw] mt-[3px]">{createdAt}</p>}
       </section>
     </div>
   );

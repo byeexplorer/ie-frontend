@@ -1,9 +1,16 @@
-.gradient {
+.gradient,
+.blue,
+.green,
+.purple,
+.gray {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: var(--dark);
   border-radius: 16px;
+}
+
+.gradient {
+  background: var(--dark);
 }
 
 .blue {
@@ -33,8 +40,10 @@
 
 .guestcard {
   position: relative;
-  width: 22vw;
-  height: 66vh;
+  aspect-ratio: 4/7;
+  width: 19vw;
+  flex: none;
+  // height: 66vh;
   // width: 389px;
   // height: 604px;
 
@@ -65,7 +74,8 @@
       gap: 9px;
 
       h3 {
-        font-size: 22px;
+        // font-size: 22px;
+        font-size: 1.3vw;
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -73,7 +83,8 @@
       }
       p {
         margin-top: 10px;
-        font-size: 18px;
+        // font-size: 18px;
+        font-size: 1vw;
         text-align: left;
         width: 100%;
         height: 100%;
@@ -95,10 +106,12 @@
     padding: 15px 10px;
 
     h3 {
-      font-size: 15px;
+      // font-size: 15px;
+      font-size: 1.1vw;
     }
     p {
-      font-size: 13px;
+      // font-size: 13px;
+      font-size: 0.9vw;
     }
   }
 }
