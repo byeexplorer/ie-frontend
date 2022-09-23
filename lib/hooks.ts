@@ -5,9 +5,13 @@ export const useComment = () => {
   const [comments, setComments] = useState<CommentRes[]>([]);
 
   const fetchComments = useCallback(async () => {
-    const res = await getComments();
+    let res = await getComments();
 
     if (res) {
+      if (res.length % 2 !== 0) {
+        //TODO: DB 최신순 정렬 확인
+        res.pop();
+      }
       setComments(res);
     }
   }, []);
