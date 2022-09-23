@@ -3,12 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { GuestCard } from './common';
 import ArrowIcon from './common/arrow-icon';
 
-import { FreeMode } from 'swiper';
+import { Autoplay, FreeMode } from 'swiper';
 import styles from 'styles/swiper.module.scss';
 
 import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import { useMemo, useState } from 'react';
 
 const test: Omit<CommentRes, 'id'>[] = [
   {
@@ -64,27 +63,41 @@ const test: Omit<CommentRes, 'id'>[] = [
 
 const Otherpeople = () => {
   const { comments } = useCommentStore();
+  const [hover, setHover] = useState(false);
 
   //FIXME: length comments
-  const swiperParams =
-    test.length > 5
-      ? {
-          freeMode: true,
-          slidesPerView: 5,
-          slidesPerGroup: 5,
-          loop: true,
-        }
-      : { slidesPerView: 5 };
+  const swiperParams = useMemo(
+    () =>
+      test.length > 5
+        ? {
+            freeMode: true,
+            slidesPerView: 5,
+            slidesPerGroup: 1,
+            speed: 5000,
+            loop: true,
+            autoplay: { delay: 0, disableOnInteraction: false, waitForTransition: false },
+            // speed: 5000,
+            //FIXME: test to comments
+            // speed: (hover ? 1000 : 7000) * test.length,
+          }
+        : { slidesPerView: 5 },
+    [comments, hover]
+  );
+
+  const onHoverToggle = (isHover: boolean) => {
+    setHover(isHover);
+  };
 
   return (
     <section className="w-full text-center pt-[15%] pb-[3%] flex flex-col items-center">
       <h1>You can see other people!</h1>
       <h2 className="text-[1.5vw] mb-10">{comments.length} people left comments.</h2>
       <Swiper
-        //FIXME: test tot comments
+        //FIXME: test to comments
         className={`${styles.swiper} ${test.length < 5 && styles.non}`}
         style={{ padding: '1.5rem 0' }}
-        modules={[FreeMode]}
+        modules={[FreeMode, Autoplay]}
+        spaceBetween={0}
         {...swiperParams}
       >
         {/* {comments.map((comment, i) => (
@@ -106,11 +119,13 @@ const Otherpeople = () => {
         ))}
       </Swiper>
       <article className="flex gap-2 mt-5">
-        <ArrowIcon className="rotate-180" />
-        <ArrowIcon />
+        <ArrowIcon {...{ hover, onHoverToggle }} className="rotate-180" />
+        <ArrowIcon {...{ hover, onHoverToggle }} />
       </article>
     </section>
   );
 };
 
 export default Otherpeople;
+
+// swiper 라이브러리 사용 불가능인데, 안에 animation을 넣어서 하는 방법으로 가야할듯?

@@ -1,10 +1,20 @@
 import { memo, useState } from 'react';
 
-const ArrowIcon = ({ className }: { className?: string }) => {
-  const [hover, setHover] = useState(false);
-
+const ArrowIcon = ({
+  className,
+  hover,
+  onHoverToggle,
+}: {
+  className?: string;
+  hover: boolean;
+  onHoverToggle: (isHover: boolean) => void;
+}) => {
   return (
-    <div className={`w-fit ${className}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div
+      className={`w-fit ${className}`}
+      onMouseEnter={() => onHoverToggle(true)}
+      onMouseLeave={() => onHoverToggle(false)}
+    >
       <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="24.1197" cy="24.4995" r="23.8823" fill={hover ? '#fff' : '#555555'} />
         <path
