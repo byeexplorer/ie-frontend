@@ -1,6 +1,11 @@
 import { useCommentStore } from 'lib/hooks';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { GuestCard } from './common';
 import ArrowIcon from './common/arrow-icon';
+
+import { FreeMode } from 'swiper';
+
+import 'swiper/css';
 
 const test: Omit<CommentRes, 'id'>[] = [
   {
@@ -40,22 +45,32 @@ const Otherpeople = () => {
     <section className="w-full text-center pt-[15%] pb-[3%] flex flex-col items-center">
       <h1>You can see other people!</h1>
       <h2 className="text-[1.5vw] mb-10">{comments.length} people left comments.</h2>
-      <article className="flex flex-nowrap p-5 overflow-x-auto max-w-[100vw]">
+      <Swiper
+        className="flex flex-nowrap max-w-[100vw] h-fix overflow-auto"
+        style={{ padding: '1.5rem 0' }}
+        slidesPerView={5}
+        spaceBetween={0}
+        freeMode={true}
+        modules={[FreeMode]}
+      >
         {comments.map((comment, i) => (
-          <GuestCard
-            key={comment.id}
-            {...comment}
-            className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
-          />
+          <SwiperSlide key={comment.id}>
+            <GuestCard
+              {...comment}
+              className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
+            />
+          </SwiperSlide>
         ))}
         {test.map((v, i) => (
-          <GuestCard
-            {...v}
-            key={i}
-            className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
-          />
+          <SwiperSlide key={i}>
+            <GuestCard
+              {...v}
+              key={i}
+              className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
+            />
+          </SwiperSlide>
         ))}
-      </article>
+      </Swiper>
       <article className="flex gap-2 mt-10">
         <ArrowIcon className="rotate-180" />
         <ArrowIcon />
