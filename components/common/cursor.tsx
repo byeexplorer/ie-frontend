@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
-const Cursor = () => {
+interface Props {
+  visible: boolean;
+}
+
+const Cursor = ({ visible }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ x: -40, y: -40 });
+  const [pos, setPos] = useState({ x: -50, y: -50 });
 
   useEffect(() => {
     const cursorHandler = (e: MouseEvent) => {
@@ -17,6 +21,8 @@ const Cursor = () => {
     <div
       ref={ref}
       style={{
+        opacity: `${visible ? 1 : 0}`,
+        transition: 'opacity 0.3s',
         width: '1rem',
         height: '1rem',
         borderRadius: '50%',

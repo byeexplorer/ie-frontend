@@ -14,7 +14,7 @@ const Portal = ({ children }: Props) => {
     return () => setMounted(false);
   }, []);
 
-  return mounted ? ReactDOM.createPortal(children, document.getElementById('portal') as HTMLDivElement) : null;
+  return mounted ? ReactDOM.createPortal(children, document.getElementById('cursor-portal') as HTMLDivElement) : null;
 };
 
 export default Portal;
