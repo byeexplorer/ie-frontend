@@ -109,20 +109,20 @@ const Desc2006 = () => {
       <section className="w-full text-blue">
         <article className="w-[100vw] h-[100vh] relative" ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
-            <h1 className="text-[13vw] leading-[120%] ml-5 pt-10" ref={header1}>
+            <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
               The Hiatus and
             </h1>
-            <h1 className="text-[13vw] leading-[120%] ml-5" ref={header2}>
+            <h1 className="text-[8vw] leading-[120%] ml-5" ref={header2}>
               Security
             </h1>
             <div className="flex ml-5" id="text-2" ref={header3}>
-              <h1 className="text-[13vw] leading-[120%] mt-3 mr-4">Troubles</h1>
+              <h1 className="text-[8vw] leading-[120%] mt-3 mr-4">Troubles</h1>
               <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
             </div>
           </div>
         </article>
-        <article className="bg-white">
-          <div className="ml-[45%]">
+        <article className="bg-white pt-[10%]">
+          <div className="ml-[37%]">
             {description.map((desc, index) => (
               <dl
                 className={styles.under}
