@@ -3,89 +3,33 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { GuestCard } from './common';
 import ArrowIcon from './common/arrow-icon';
 
-import { Autoplay, FreeMode } from 'swiper';
+import { Autoplay, FreeMode, Navigation } from 'swiper';
 import styles from 'styles/swiper.module.scss';
 
 import 'swiper/css';
-import { useMemo, useState } from 'react';
 
-const test: Omit<CommentRes, 'id'>[] = [
-  {
-    color: 'blue',
-    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
-    createdAt: '2022.12.12',
-    name: 'nadsfnasdf',
-    obj: 'newest',
-  },
-  {
-    color: 'gray',
-    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
-    createdAt: '2022.12.12',
-    name: 'nadsfnasdf',
-    obj: 'explorer',
-  },
-  {
-    color: 'purple',
-    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
-    createdAt: '2022.12.12',
-    name: 'nadsfnasdf',
-    obj: 'edge',
-  },
-  {
-    color: 'green',
-    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
-    createdAt: '2022.12.12',
-    name: 'nadsfnasdf',
-    obj: 'oldest',
-  },
-  {
-    color: 'green',
-    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
-    createdAt: '2022.12.12',
-    name: 'nadsfnasdf',
-    obj: 'oldest',
-  },
-  {
-    color: 'purple',
-    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
-    createdAt: '2022.12.12',
-    name: 'nadsfnasdf',
-    obj: 'newest',
-  },
-  {
-    color: 'green',
-    comment: 'adsfasfdafdsafaselfhaeskfhekajsfekjajhfjk',
-    createdAt: '2022.12.12',
-    name: 'nadsfnasdf',
-    obj: 'oldest',
-  },
-];
+import { useMemo, useState } from 'react';
 
 const Otherpeople = () => {
   const { comments } = useCommentStore();
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState({ prev: false, next: false });
 
-  //FIXME: length comments
   const swiperParams = useMemo(
     () =>
-      test.length > 5
+      comments.length > 5
         ? {
             freeMode: true,
             slidesPerView: 5,
-            slidesPerGroup: 1,
-            speed: 5000,
+            speed: 2000,
             loop: true,
-            autoplay: { delay: 0, disableOnInteraction: false, waitForTransition: false },
-            // speed: 5000,
-            //FIXME: test to comments
-            // speed: (hover ? 1000 : 7000) * test.length,
+            autoplay: { delay: 1000, disableOnInteraction: false, waitForTransition: false },
           }
         : { slidesPerView: 5 },
-    [comments, hover]
+    [comments]
   );
 
-  const onHoverToggle = (isHover: boolean) => {
-    setHover(isHover);
+  const onHoverToggle = (isHover: boolean, isPrev = true) => {
+    setHover(isPrev ? { ...hover, prev: isHover } : { ...hover, next: isHover });
   };
 
   return (
@@ -93,39 +37,32 @@ const Otherpeople = () => {
       <h1>You can see other people!</h1>
       <h2 className="text-[1.5vw] mb-10">{comments.length} people left comments.</h2>
       <Swiper
-        //FIXME: test to comments
-        className={`${styles.swiper} ${test.length < 5 && styles.non}`}
+        className={`${styles.swiper} ${comments.length < 5 && styles.non}`}
         style={{ padding: '1.5rem 0' }}
-        modules={[FreeMode, Autoplay]}
+        modules={[FreeMode, Autoplay, Navigation]}
         spaceBetween={0}
+        navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
         {...swiperParams}
       >
-        {/* {comments.map((comment, i) => (
+        {comments.map((comment, i) => (
           <SwiperSlide key={comment.id}>
             <GuestCard
               {...comment}
               className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
             />
           </SwiperSlide>
-        ))} */}
-        {test.map((v, i) => (
-          <SwiperSlide key={i} style={{ width: 'fit-content' }}>
-            <GuestCard
-              {...v}
-              key={i}
-              className={`${i % 2 === 0 ? 'rotate-[7deg] translate-y-[-40px]' : 'rotate-[-7deg] translate-y-[40px]'}`}
-            />
-          </SwiperSlide>
         ))}
       </Swiper>
       <article className="flex gap-2 mt-5">
-        <ArrowIcon {...{ hover, onHoverToggle }} className="rotate-180" />
-        <ArrowIcon {...{ hover, onHoverToggle }} />
+        <ArrowIcon
+          hover={hover.prev}
+          onHoverToggle={(v) => onHoverToggle(v)}
+          className="rotate-180 swiper-button-prev"
+        />
+        <ArrowIcon hover={hover.next} onHoverToggle={(v) => onHoverToggle(v, false)} className="swiper-button-next" />
       </article>
     </section>
   );
 };
 
 export default Otherpeople;
-
-// swiper 라이브러리 사용 불가능인데, 안에 animation을 넣어서 하는 방법으로 가야할듯?
