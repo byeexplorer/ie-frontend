@@ -7,7 +7,7 @@ interface Props {
 
 function Hamburger({ isMenuOpen, onClick }: Props) {
   return (
-    <div className="flex flex-col justify-center align-center" onClick={onClick}>
+    <div className="flex flex-col justify-center align-center z-20" onClick={onClick}>
       <div className="flex flex-col justify-around align-center h-[0.8rem]">
         <div
           className={`h-[0.07rem] w-[0.75rem] transition-all bg-[#3834FF] rounded origin-top-left ${
