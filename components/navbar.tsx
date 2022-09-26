@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Observer } from 'gsap/dist/Observer';
+import Hamburger from './common/hamburger';
 
 const MENU = [
   { menu: 'Overview', selector: '' },
@@ -12,61 +13,18 @@ const MENU = [
 ];
 
 const Navbar = () => {
-  const [isSlideIn, setIsSlideIn] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const slideInRef = useRef<boolean>(false);
-  const timerRef = useRef<NodeJS.Timer>();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleBtnClick = () => {
-    setIsSlideIn(!isSlideIn);
+  const handleHamburgerClick = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, Observer);
-  }, []);
-
-  useEffect(() => {
-    if (isSlideIn) {
-      setIsOpen(true);
-    } else {
-      timerRef.current = setTimeout(() => {
-        setIsOpen(false);
-      }, 900);
-    }
-    return () => {
-      clearTimeout(timerRef.current);
-    };
-  }, [isOpen, isSlideIn]);
+  const handleMenuItemClick = () => setIsMenuOpen(false);
 
   return (
-    <div>
-      <section
-        id="navbar"
-        className="fixed top-0 left-0 w-full z-20 flex justify-between text-blue px-[0.75rem] pt-[0.15rem]"
-      >
-        {/* TODO: 네브바 아이콘으로 변환, 1995 타임라인에서 그라데이션 */}
-        <button id="navbar-icon">아이콘</button>
-        <button id="menu" onClick={handleBtnClick}>
-          햄버거
-        </button>
-      </section>
-      {isOpen && (
-        <ul
-          className={`fixed top-0 right-0 z-10 w-3/5 h-full p-[1rem] flex flex-col justify-between bg-white text-blue text-[2rem] leading-[3rem] ${
-            isSlideIn ? 'animate-slide-in' : 'animate-slide-out'
-          }`}
-        >
-          {MENU.map((item) => (
-            <li
-              className="hover:italic"
-              key={item.selector}
-              onClick={() => gsap.to(window, { scrollTo: item.selector })}
-            >
-              {item.menu}
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="fixed top-0 left-0 w-full z-20 flex justify-between text-blue px-[0.75rem] pt-[0.15rem]">
+      <div>아이콘</div>
+      <Hamburger onClick={handleHamburgerClick} isMenuOpen={isMenuOpen} />
+      {/* <Menu></Menu> */}
     </div>
   );
 };
