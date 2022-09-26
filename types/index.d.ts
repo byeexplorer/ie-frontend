@@ -6,11 +6,13 @@ type Team = {
 };
 
 type CardColor = 'blue' | 'purple' | 'green' | 'gray';
-type CardModel = 'ie-95' | 'ie-97' | 'ie-edge1' | 'ie-edge2';
+type CardModel = 'oldest' | 'edge' | 'explorer' | 'newest';
 
 type CommentRes = {
-  obj: 'oldest' | 'explorer' | 'simple' | 'edge';
-  userName: string;
-  userComment: string;
-  createdAt: Date;
+  id: string;
+  obj: CardModel;
+  color: CardColor;
+  name: string;
+  comment: string;
+  createdAt: string;
 };

@@ -12,6 +12,7 @@ const Time2008 = () => {
   const { ref, inView } = useInView();
   const [explorerHover, setExplorerHover] = useState(false);
   const [otherHover, setOtherHover] = useState(false);
+  const [isMouseOver, setIsMouseOver] = useState(false);
 
   const explorerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -21,7 +22,7 @@ const Time2008 = () => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '#container',
+        trigger: '#container-2008',
         pin: true,
         start: 'top top',
         scrub: true,
@@ -65,14 +66,20 @@ const Time2008 = () => {
   const handleExplorerMouseEnter = () => setExplorerHover(true);
   const handleExplorerMouseLeave = () => setExplorerHover(false);
 
+  const handleMouseOver = () => setIsMouseOver(true);
+  const handleMouseLeave = () => setIsMouseOver(false);
   return (
-    <article className="relative pl-4 pb-10 pr-2 cursor-none" id="container" ref={ref}>
+    <article
+      className="relative pl-4 pb-10 pr-2 cursor-none"
+      id="container-2008"
+      ref={ref}
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Portal>
+        <Cursor visible={inView && isMouseOver} />
+      </Portal>
       {/* <!-- 2008 Title --> */}
-      {inView && (
-        <Portal>
-          <Cursor />
-        </Portal>
-      )}
       <section className="h-screen flex justify-center flex-col">
         <h1 id="title1" className="title italic text-[7rem] leading-[70%] opacity-50 hidden">
           Browser

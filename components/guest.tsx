@@ -1,25 +1,52 @@
 import Image from 'next/image';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
+import { postComments } from 'lib/api';
+import { useCommentStore } from 'lib/hooks';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
-const cardModel: CardModel[] = ['ie-95', 'ie-edge1', 'ie-97', 'ie-edge2'];
+const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
 
 const Guest = () => {
   const [color, setColor] = useState<CardColor>('blue');
-  const [model, setModel] = useState<CardModel>('ie-95');
-
+  const [obj, setObj] = useState<CardModel>('oldest');
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
 
-  // TODO: fetch submit
+  const { fetchComments } = useCommentStore();
+
+  const resetSubmit = useCallback(() => {
+    setColor('blue');
+    setObj('oldest');
+    setName('');
+    setComment('');
+  }, []);
+
+  const createComment = useCallback(async () => {
+    const status = await postComments({ color, comment, name, obj: obj });
+
+    if (status && status === 201) {
+      //TODO: change to success icon
+      alert('전송 성공!');
+      fetchComments();
+      resetSubmit();
+    }
+  }, [color, comment, name, obj, resetSubmit, fetchComments]);
+
   const handleSubmit = () => {
-    alert('준비중입니다.');
+    if (!name || !comment) {
+      return;
+    }
+    createComment();
   };
 
   const handleColorClick = useCallback((value: CardColor) => setColor(value), []);
-  const handleModelClick = useCallback((value: CardModel) => setModel(value), []);
+  const handleModelClick = useCallback((value: CardModel) => setObj(value), []);
+
+  useEffect(() => {
+    fetchComments();
+  }, [fetchComments]);
 
   return (
     <section id="guest-explorer" className="flex flex-col items-center mt-20">
@@ -48,7 +75,7 @@ const Guest = () => {
               {cardModel.map((card) => (
                 <button
                   className={`aspect-[4/5] rounded-[10px] bg-black grid place-items-center box-border ${
-                    card === model ? 'bg-[#252525] border-white border' : ''
+                    card === obj ? 'bg-[#252525] border-white border' : ''
                   }`}
                   key={card}
                   onClick={() => handleModelClick(card)}
@@ -65,11 +92,10 @@ const Guest = () => {
           <article className="flex flex-col items-center">
             <h2 className="text-[20px] mb-2">You can see your card</h2>
             <GuestCard
-              type={color}
+              {...{ color, obj }}
               small
-              model={`/images/models/${model}-${color}.png`}
-              userName={name.length === 0 ? 'Name' : name}
-              userComment={comment.length === 0 ? 'Write down your own message to Internet Explorer.' : comment}
+              name={name.length === 0 ? 'Name' : name}
+              comment={comment.length === 0 ? 'Write down your own message to Internet Explorer.' : comment}
             />
           </article>
           <article className="flex flex-col mt-3">
