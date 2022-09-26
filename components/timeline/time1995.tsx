@@ -36,6 +36,12 @@ const Time1995 = () => {
           immediateRender: false,
         },
       })
+      // navbar 색깔 변경.. 더 깔끔한 방법을 찾아야 함
+      .to('#navbar', {
+        color: 'white',
+      })
+      .to('#hamburger > div', { background: 'white' }, '<')
+      // navbar
       .fromTo('#container-1995', { opacity: 0 }, { opacity: 1 }, '1')
       .to('#container-1995', { background: '#FFFFFF' })
       .to('#overlay', { opacity: 0 }, '<')
@@ -51,6 +57,19 @@ const Time1995 = () => {
       .to('#container-1995', { background: '#D7D7D7' })
       .to('#head-1995', { color: 'black' }, '<')
       .to(q('#card'), { rotateY: (i) => i * ANGLE + 300, ease: 'linear' }, '<');
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#intermediate',
+          pin: true,
+          scrub: true,
+          start: 'top top',
+          end: 'bottom bottom',
+          immediateRender: false,
+        },
+      })
+      .to('#navbar-background', { opacity: 0, duration: 1 });
   }, [q]);
 
   return (
@@ -97,6 +116,7 @@ const Time1995 = () => {
           </div>
         </div>
       </div>
+      <div id="intermediate" className="w-screen h-screen bg-gradient-to-b from-[#d7d7d7] to-[#3834ff]"></div>
     </>
   );
 };
