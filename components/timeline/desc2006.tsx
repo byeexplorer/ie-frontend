@@ -18,6 +18,7 @@ const description = [
 
 const Desc2006 = () => {
   const container = useRef<HTMLElement>(null);
+  const blueContainer = useRef<HTMLDivElement>(null);
   const background = useRef<HTMLDivElement>(null);
 
   const header1 = useRef<HTMLHeadingElement>(null);
@@ -82,6 +83,17 @@ const Desc2006 = () => {
         },
       });
     }
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: blueContainer.current,
+        start: 'top top',
+        end: '+=100%',
+        scrub: true,
+      },
+    });
+    tl2.to(blueContainer.current, { duration: 0.3, backgroundColor: '#1C1A80', ease: 'none' });
+    tl2.to(blueContainer.current, { duration: 0.3, backgroundColor: '#11104D', ease: 'none' });
   }, []);
 
   return (
@@ -107,7 +119,7 @@ const Desc2006 = () => {
       </section>
       {/* <!-- 2006 Description --> */}
       <section className="w-full text-blue">
-        <article className="w-[100vw] h-[100vh] relative" ref={container}>
+        <article className="w-[100vw] h-[100vh] relative " ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
             <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
               The Hiatus and
@@ -121,7 +133,11 @@ const Desc2006 = () => {
             </div>
           </div>
         </article>
-        <article className="bg-white pt-[10%]">
+        <article className="bg-white pt-[10%] pb-[60%] relative" ref={blueContainer}>
+          {/* <!-- 2006 3D object #2 --> */}
+          <div className="absolute bottom-10 w-full h-[60%] overflow-hidden">
+            <iframe src={'/videos/IE_updown_motion.gif'} className="w-full h-full" scrolling="no" />
+          </div>
           <div className="ml-[37%]">
             {description.map((desc, index) => (
               <dl
@@ -139,10 +155,6 @@ const Desc2006 = () => {
             ))}
           </div>
         </article>
-      </section>
-      {/* <!-- 2006 3D object #2 --> */}
-      <section className="w-full py-[15%] bg-white">
-        <article className="w-full h-[425px] bg-slate-300"></article>
       </section>
     </article>
   );

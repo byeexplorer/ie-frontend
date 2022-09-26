@@ -18,8 +18,8 @@ const Bug2006 = () => {
         scrub: true,
       },
     });
-    tl.to('#bug-container', { duration: 1, backgroundColor: '#1C1A80', ease: 'none' }, 0);
-    tl.to('#bug-container', { duration: 1, backgroundColor: '#11104D', ease: 'none' }, 1);
+    // tl.to('#bug-container', { duration: 1, backgroundColor: '#1C1A80', ease: 'none' }, 0);
+    // tl.to('#bug-container', { duration: 1, backgroundColor: '#11104D', ease: 'none' }, 1);
     tl.to('#bug1', { display: 'block', duration: 1 });
     tl.to('#bug2', { display: 'block', duration: 0.2 });
     tl.to('#bug3', { display: 'block', duration: 0.2 });
@@ -59,7 +59,7 @@ const Bug2006 = () => {
   return (
     <>
       {/* <!-- 2006 Bug --> */}
-      <section id="bug-container" className="relative h-screen w-screen bg-white">
+      <section id="bug-container" className="relative h-screen w-screen bg-[#11104D]">
         <ImageWrapper src={IMAGES.BUG.BUG1} alt="bug" className={`${styles.bug1} middle`} id="bug1" />
         <ImageWrapper src={IMAGES.BUG.BUG2} alt="bug" className={`${styles.bug2} right-0 top-5`} id="bug2" />
         <ImageWrapper src={IMAGES.BUG.BUG3} alt="bug" className={`${styles.bug3} left-8 top-2`} id="bug3" />
