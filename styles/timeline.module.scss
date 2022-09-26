@@ -1,12 +1,12 @@
 .under {
   position: relative;
   margin-bottom: 12px;
-  font-size: 0.9rem;
+  font-size: 2.8vw;
+  line-height: 140%;
   width: fit-content;
-  padding: 0 19px;
+  padding: 0 15px;
   box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .underline {
