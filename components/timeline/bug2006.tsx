@@ -16,6 +16,14 @@ const Bug2006 = () => {
         start: 'top top',
         end: '+=1000%',
         scrub: true,
+        onEnter: () => {
+          gsap.to('#navbar', { color: 'white' });
+          gsap.to('#hamburger > div', { background: 'white' });
+        },
+        onLeaveBack: () => {
+          gsap.to('#navbar', { color: '#3834FF' });
+          gsap.to('#hamburger > div', { background: '#3834FF' });
+        },
       },
     });
     tl.to('#bug-container', { duration: 1, backgroundColor: '#1C1A80', ease: 'none' }, 0);
