@@ -45,6 +45,14 @@ const Desc2006 = () => {
         start: 'center top',
         end: '+=300% top',
         scrub: true,
+        onEnter: () => {
+          gsap.to('#navbar', { color: '#3834FF' });
+          gsap.to('#hamburger > div', { background: '#3834FF' });
+        },
+        onLeaveBack: () => {
+          gsap.to('#navbar', { color: 'white' });
+          gsap.to('#hamburger > div', { background: 'white' });
+        },
       },
     });
 
