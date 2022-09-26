@@ -8,6 +8,8 @@ name: MASTER/Push - Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: '${{ secrets.BASE_URL }}'
     steps:
       - uses: actions/checkout@v2
       - run: npm install && npm run build:master
