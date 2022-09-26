@@ -11,10 +11,10 @@ export default function MainPage() {
     <>
       <Navbar />
       {/* <!-- Overview --> */}
-      <Overview />
+      {/* <Overview /> */}
       {/* <!-- Timeline --> */}
-      <Time1995 />
-      <Time2006 />
+      {/* <Time1995 /> */}
+      {/* <Time2006 /> */}
       <Desc2006 />
       <Bug2006 />
       <div id="cursor-portal">

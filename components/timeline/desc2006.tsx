@@ -21,7 +21,8 @@ const Desc2006 = () => {
   const background = useRef<HTMLDivElement>(null);
 
   const header1 = useRef<HTMLHeadingElement>(null);
-  const header2 = useRef<HTMLDivElement>(null);
+  const header2 = useRef<HTMLHeadingElement>(null);
+  const header3 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -53,6 +54,17 @@ const Desc2006 = () => {
       x: 0,
       scrollTrigger: {
         trigger: header2.current,
+        start: 'bottom top',
+        end: '+=400% top',
+        scrub: true,
+      },
+    });
+
+    gsap.set(header3.current, { x: 600 });
+    gsap.to(header3.current, {
+      x: 0,
+      scrollTrigger: {
+        trigger: header3.current,
         start: 'bottom top',
         end: '+=500% top',
         scrub: true,
@@ -97,11 +109,14 @@ const Desc2006 = () => {
       <section className="w-full text-blue">
         <article className="w-[100vw] h-[100vh] relative" ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
-            <h1 className="text-5xl ml-5 pt-10" ref={header1}>
-              The Hiatus and Security
+            <h1 className="text-[13vw] leading-[120%] ml-5 pt-10" ref={header1}>
+              The Hiatus and
             </h1>
-            <div className="flex ml-5" id="text-2" ref={header2}>
-              <h1 className="text-5xl mt-3 mr-4">Troubles</h1>
+            <h1 className="text-[13vw] leading-[120%] ml-5" ref={header2}>
+              Security
+            </h1>
+            <div className="flex ml-5" id="text-2" ref={header3}>
+              <h1 className="text-[13vw] leading-[120%] mt-3 mr-4">Troubles</h1>
               <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
             </div>
           </div>
