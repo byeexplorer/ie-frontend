@@ -21,6 +21,9 @@ const Desc2006 = () => {
   const blueContainer = useRef<HTMLDivElement>(null);
   const background = useRef<HTMLDivElement>(null);
 
+  const squareContainer = useRef<HTMLElement>(null);
+  const square = useRef<HTMLDivElement>(null);
+
   const header1 = useRef<HTMLHeadingElement>(null);
   const header2 = useRef<HTMLHeadingElement>(null);
   const header3 = useRef<HTMLDivElement>(null);
@@ -28,24 +31,28 @@ const Desc2006 = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline({
+    // square continaer
+    const sqaureTl = gsap.timeline({
       scrollTrigger: {
-        trigger: container.current,
-        pin: true,
-        start: 'top top',
-        end: '+=400% bottom',
+        trigger: squareContainer.current,
+        start: 'center center',
+        end: '+=550% bottom',
         scrub: true,
+        pin: true,
       },
     });
-    tl.fromTo(background.current, { x: '100%' }, { x: '0' });
+    sqaureTl.to(square.current, {
+      width: '100%',
+    });
+    sqaureTl.fromTo(background.current, { x: '100%' }, { x: '0' });
 
-    gsap.set(header1.current, { x: 400 });
+    gsap.set(header1.current, { x: 800 });
     gsap.to(header1.current, {
       x: 0,
       scrollTrigger: {
         trigger: header1.current,
-        start: 'center top',
-        end: '+=300% top',
+        start: '+=1000% top',
+        end: '+=80%',
         scrub: true,
         onEnter: () => {
           gsap.to('#navbar', { color: '#3834FF' });
@@ -58,24 +65,24 @@ const Desc2006 = () => {
       },
     });
 
-    gsap.set(header2.current, { x: 500 });
+    gsap.set(header2.current, { x: 1000 });
     gsap.to(header2.current, {
       x: 0,
       scrollTrigger: {
         trigger: header2.current,
-        start: 'bottom top',
-        end: '+=400% top',
+        start: '+=1500% top',
+        end: '+=110%',
         scrub: true,
       },
     });
 
-    gsap.set(header3.current, { x: 600 });
+    gsap.set(header3.current, { x: 1200 });
     gsap.to(header3.current, {
       x: 0,
       scrollTrigger: {
         trigger: header3.current,
-        start: 'bottom top',
-        end: '+=500% top',
+        start: '+=1100% top',
+        end: '+=150%',
         scrub: true,
       },
     });
@@ -105,9 +112,10 @@ const Desc2006 = () => {
   }, []);
 
   return (
-    <article className="bg-blue pt-[30vw] ">
+    <article className="bg-blue relative">
       {/* <!-- 2006 3D object #1 --> */}
-      <section id="fix-container">
+      <section className="fix-container relative w-screen h-screen grid place-items-center" ref={squareContainer}>
+        <div className="bg-[#5a8efd] absolute middle origin-center aspect-[7/6] z-0" ref={square} />
         <video
           src="videos/under2006.mp4"
           loop={true}
@@ -115,19 +123,9 @@ const Desc2006 = () => {
           controls={false}
           muted={true}
           playsInline={true}
-          className="w-full h-[30vw]"
-        >
-          {/* <source src="/under2006.mp4" /> */}
-        </video>
-        {/* <div
-          id="fix-box"
-          className="w-full h-[30vw] bg-slate-400"
-          style={{ marginBottom: 'calc((100vh - 30vw) / 2)' }}
-        /> */}
-      </section>
-      {/* <!-- 2006 Description --> */}
-      <section className="w-full text-blue">
-        <article className="w-[100vw] h-[100vh] relative " ref={container}>
+          className="h-[30vw] m-auto z-[1]"
+        />
+        <article className="w-[100vw] h-[100vh] absolute text-blue z-20" ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
             <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
               The Hiatus and
@@ -141,6 +139,9 @@ const Desc2006 = () => {
             </div>
           </div>
         </article>
+      </section>
+      {/* <!-- 2006 Description --> */}
+      <section className="w-full text-blue">
         <article className="bg-white pt-[10%] pb-[60%] relative" ref={blueContainer}>
           {/* <!-- 2006 3D object #2 --> */}
           <div className="absolute bottom-10 w-full h-[60%] overflow-hidden">
