@@ -86,7 +86,7 @@ const Desc2006 = () => {
         scrollTrigger: {
           trigger: `#under-${i}`,
           start: 'center center',
-          end: '+=300',
+          end: '+=30%',
           scrub: true,
         },
       });
