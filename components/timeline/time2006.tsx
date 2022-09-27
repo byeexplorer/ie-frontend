@@ -72,7 +72,7 @@ const Time2006 = () => {
   }, []);
 
   return (
-    <article className="bg-blue grid place-items-center">
+    <article className="bg-blue grid place-items-center pb-[30vw]">
       {/* <!-- 2006 Description --> */}
       <section className="text-xs font-thin leading-[140%] pb-[30%] text-center relative pt-[20%] w-full">
         <FloatingIcon

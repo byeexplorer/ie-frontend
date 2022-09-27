@@ -20,6 +20,15 @@ module.exports = {
       fontSize: {
         tiny: '.5rem',
       },
+      keyframes: {
+        'width-full': {
+          from: { width: '0' },
+          to: { width: '100%' },
+        },
+      },
+      animation: {
+        'width-full': 'width-full 0.7s ease-in-out forwards',
+      },
     },
   },
   plugins: [],
