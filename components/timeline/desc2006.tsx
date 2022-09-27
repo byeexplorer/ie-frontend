@@ -18,10 +18,12 @@ const description = [
 
 const Desc2006 = () => {
   const container = useRef<HTMLElement>(null);
+  const blueContainer = useRef<HTMLDivElement>(null);
   const background = useRef<HTMLDivElement>(null);
 
   const header1 = useRef<HTMLHeadingElement>(null);
-  const header2 = useRef<HTMLDivElement>(null);
+  const header2 = useRef<HTMLHeadingElement>(null);
+  const header3 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -62,6 +64,17 @@ const Desc2006 = () => {
       scrollTrigger: {
         trigger: header2.current,
         start: 'bottom top',
+        end: '+=400% top',
+        scrub: true,
+      },
+    });
+
+    gsap.set(header3.current, { x: 600 });
+    gsap.to(header3.current, {
+      x: 0,
+      scrollTrigger: {
+        trigger: header3.current,
+        start: 'bottom top',
         end: '+=500% top',
         scrub: true,
       },
@@ -78,6 +91,17 @@ const Desc2006 = () => {
         },
       });
     }
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: blueContainer.current,
+        start: 'top top',
+        end: '+=100%',
+        scrub: true,
+      },
+    });
+    tl2.to(blueContainer.current, { duration: 0.3, backgroundColor: '#1C1A80', ease: 'none' });
+    tl2.to(blueContainer.current, { duration: 0.3, backgroundColor: '#11104D', ease: 'none' });
   }, []);
 
   return (
@@ -103,19 +127,26 @@ const Desc2006 = () => {
       </section>
       {/* <!-- 2006 Description --> */}
       <section className="w-full text-blue">
-        <article className="w-[100vw] h-[100vh] relative" ref={container}>
+        <article className="w-[100vw] h-[100vh] relative " ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
-            <h1 className="text-5xl ml-5 pt-10" ref={header1}>
-              The Hiatus and Security
+            <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
+              The Hiatus and
             </h1>
-            <div className="flex ml-5" id="text-2" ref={header2}>
-              <h1 className="text-5xl mt-3 mr-4">Troubles</h1>
+            <h1 className="text-[8vw] leading-[120%] ml-5" ref={header2}>
+              Security
+            </h1>
+            <div className="flex ml-5" id="text-2" ref={header3}>
+              <h1 className="text-[8vw] leading-[120%] mt-3 mr-4">Troubles</h1>
               <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
             </div>
           </div>
         </article>
-        <article className="bg-white">
-          <div className="ml-[45%]">
+        <article className="bg-white pt-[10%] pb-[60%] relative" ref={blueContainer}>
+          {/* <!-- 2006 3D object #2 --> */}
+          <div className="absolute bottom-10 w-full h-[60%] overflow-hidden">
+            <iframe src={'/videos/IE_updown_motion.gif'} className="w-full h-full" scrolling="no" />
+          </div>
+          <div className="ml-[37%]">
             {description.map((desc, index) => (
               <dl
                 className={styles.under}
@@ -132,10 +163,6 @@ const Desc2006 = () => {
             ))}
           </div>
         </article>
-      </section>
-      {/* <!-- 2006 3D object #2 --> */}
-      <section className="w-full py-[15%] bg-white">
-        <article className="w-full h-[425px] bg-slate-300"></article>
       </section>
     </article>
   );
