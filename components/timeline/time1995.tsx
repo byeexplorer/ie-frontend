@@ -13,10 +13,6 @@ const Time1995 = () => {
     ScrollTrigger.refresh();
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.set(cardWrapperRef.current, {
-      css: { transformStyle: 'preserve-3d', perspective: 1000, perspectiveOrigin: 'center' },
-    });
-
     gsap.set(q('#card'), {
       css: {
         rotationY: (i: number) => i * ANGLE,
@@ -84,35 +80,43 @@ const Time1995 = () => {
             priority
           ></Image>
         </div>
-        <div id="text-wrapper" className="absolute w-full flex flex-col text-black top-5">
-          <p id="head-1995" className="text-center text-xl">
-            Microsoft Windows98
-          </p>
-          <p id="head-1995" className="text-center text-tiny">
-            Now Released!
-          </p>
-          <p id="head-1995" className="text-center text-6xl">
-            1995
-          </p>
-        </div>
-        <div ref={cardWrapperRef} className="absolute left-1/2 ml-[-5rem] bottom-8 w-[10rem] h-[7rem]">
-          <div id="card" className="absolute w-40 h-28">
-            <Image src="/images/1.png" alt="" layout="fill" />
+        <div className="absolute w-full h-screen flex flex-col text-black">
+          <div id="text-wrapper">
+            <p id="head-1995" className="text-center pt-[12vh] text-[4vw]">
+              Microsoft Windows98
+            </p>
+            <p id="head-1995" className="text-center text-[2vw]">
+              Now Released!
+            </p>
+            <p id="head-1995" className="text-center  text-[8vw]">
+              1995
+            </p>
           </div>
-          <div id="card" className="absolute w-40 h-28">
-            <Image src="/images/2.png" alt="" layout="fill" />
-          </div>
-          <div id="card" className="absolute w-40 h-28">
-            <Image src="/images/3.png" alt="" layout="fill" />
-          </div>
-          <div id="card" className="absolute w-40 h-28">
-            <Image src="/images/4.png" alt="" layout="fill" />
-          </div>
-          <div id="card" className="absolute w-40 h-20 top-1/2 mt-[-2.5rem]">
-            <Image src="/images/5.png" alt="" layout="fill" />
-          </div>
-          <div id="card" className="absolute w-40 h-28">
-            <Image src="/images/6.png" alt="" layout="fill" />
+          <div className="relative w-full h-full flex justify-center items-center">
+            <div
+              ref={cardWrapperRef}
+              className="relative w-40 h-28"
+              style={{ transformStyle: 'preserve-3d', perspective: 1000, perspectiveOrigin: 'center' }}
+            >
+              <div id="card" className="absolute w-40 h-28">
+                <Image src="/images/1.png" alt="" layout="fill" />
+              </div>
+              <div id="card" className="absolute w-40 h-28">
+                <Image src="/images/2.png" alt="" layout="fill" />
+              </div>
+              <div id="card" className="absolute w-40 h-28">
+                <Image src="/images/3.png" alt="" layout="fill" />
+              </div>
+              <div id="card" className="absolute w-40 h-28">
+                <Image src="/images/4.png" alt="" layout="fill" />
+              </div>
+              <div id="card" className="absolute w-40 h-20 top-1/2 mt-[-2.5rem]">
+                <Image src="/images/5.png" alt="" layout="fill" />
+              </div>
+              <div id="card" className="absolute w-40 h-28">
+                <Image src="/images/6.png" alt="" layout="fill" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
