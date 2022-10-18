@@ -24,7 +24,7 @@ const Guest = () => {
   }, []);
 
   const createComment = useCallback(async () => {
-    const status = await postComments({ color, comment, name, obj: obj });
+    const status = await postComments({ color, comment, name, obj });
 
     if (status && status === 201) {
       //TODO: change to success icon
