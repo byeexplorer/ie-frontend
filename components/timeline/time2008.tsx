@@ -7,6 +7,7 @@ import { IMAGES } from 'lib/assets';
 import { useEffect, useRef, useState } from 'react';
 import styles from 'styles/timeline.module.scss';
 import { useInView } from 'react-intersection-observer';
+import HoverLogo from 'components/common/hover-logo';
 
 const Time2008 = () => {
   const { ref, inView } = useInView();
@@ -14,6 +15,7 @@ const Time2008 = () => {
   const [otherHover, setOtherHover] = useState(false);
   const [isMouseOver, setIsMouseOver] = useState(false);
 
+  const hoverRef = useRef<HTMLDivElement>(null);
   const explorerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const othericonsRef = useRef<HTMLDivElement>(null);
@@ -24,13 +26,25 @@ const Time2008 = () => {
       scrollTrigger: {
         trigger: '#container-2008',
         pin: true,
-        start: 'top top',
+        start: '-50 top',
         scrub: true,
       },
     });
     tl.to('.title', { display: 'block', duration: 1 });
     tl.to('#title1', { autoAlpha: 1, duration: 0.3 });
     tl.to('#title2', { autoAlpha: 1, duration: 0.3 });
+
+    // hover animation
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: hoverRef.current,
+        start: 3100,
+      },
+    });
+    tl2.to('.hover-image', { autoAlpha: 0.1 });
+    tl2.to('.hover-image', { autoAlpha: 1 });
+    tl2.to('.hover-image', { autoAlpha: 0.1 });
+    tl2.to('.hover-image', { autoAlpha: 1 });
 
     textRef.current?.removeEventListener('mouseenter', () => {});
     textRef.current?.removeEventListener('', () => {});
@@ -40,7 +54,7 @@ const Time2008 = () => {
 
   useEffect(() => {
     gsap.to(othericonsRef.current, {
-      scale: otherHover ? 1.6 : 1,
+      scale: otherHover ? 2.2 : 1,
     });
     gsap.to(explorerRef.current, {
       width: otherHover ? 0 : '100%',
@@ -90,26 +104,43 @@ const Time2008 = () => {
       </section>
       {/* <!-- 2008 wars --> */}
       <section className="mt-[30%] w-full h-full">
-        <div className={`flex w-full items-end gap-1 relative min-h-[30vw]`}>
-          <div className="w-full h-full shrink-[1.5] origin-bottom-left" ref={explorerRef}>
+        <div className={`flex w-full items-end gap-1 relative min-h-[30vw]`} ref={hoverRef}>
+          <article className="w-full h-full shrink-[1.5] flex justify-center">
+            <HoverLogo />
             <ImageWrapper
+              ref={explorerRef}
               src={IMAGES.BROWSER.EXPLORER}
               alt="explorer"
-              className={`${styles.explorerlogo} aspect-square relative w-full`}
+              className={`hover-image ${styles.explorerlogo} aspect-square relative w-full origin-bottom-left`}
             />
-          </div>
+          </article>
           <h2 ref={textRef} className="text-[18vw] leading-[70%] z-10 pointer-events-none">
             2008
           </h2>
-          <div
-            id="othericon"
-            className={`${styles.otherlogo} flex w-full h-full gap-1 shrink-[1] origin-bottom-right`}
-            ref={othericonsRef}
-          >
-            <ImageWrapper src={IMAGES.BROWSER.CHROME} alt="explorer" className="relative aspect-square flex-1" />
-            <ImageWrapper src={IMAGES.BROWSER.SAFARI} alt="explorer" className="relative aspect-square flex-1" />
-            <ImageWrapper src={IMAGES.BROWSER.FIREFOX} alt="explorer" className="relative aspect-square flex-1" />
-          </div>
+          <article className="w-full h-full flex justify-center">
+            <HoverLogo />
+            <div
+              id="othericon"
+              className={`${styles.otherlogo} flex w-full h-full gap-1 shrink-[1] origin-bottom-right`}
+              ref={othericonsRef}
+            >
+              <ImageWrapper
+                src={IMAGES.BROWSER.CHROME}
+                alt="explorer"
+                className="hover-image relative aspect-square flex-1"
+              />
+              <ImageWrapper
+                src={IMAGES.BROWSER.SAFARI}
+                alt="explorer"
+                className="hover-image relative aspect-square flex-1"
+              />
+              <ImageWrapper
+                src={IMAGES.BROWSER.FIREFOX}
+                alt="explorer"
+                className="hover-image relative aspect-square flex-1"
+              />
+            </div>
+          </article>
           <aside
             className="absolute w-[30%] h-full left-0 z-30"
             onMouseEnter={handleExplorerMouseEnter}
