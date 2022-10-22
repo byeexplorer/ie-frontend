@@ -29,8 +29,8 @@ const Time2008 = () => {
       },
     });
     tl.to('.title', { display: 'block', duration: 1 });
-    tl.to('#title1', { autoAlpha: 1, duration: 0.5 });
-    tl.to('#title2', { autoAlpha: 1, duration: 0.5 });
+    tl.to('#title1', { autoAlpha: 1, duration: 0.3 });
+    tl.to('#title2', { autoAlpha: 1, duration: 0.3 });
 
     textRef.current?.removeEventListener('mouseenter', () => {});
     textRef.current?.removeEventListener('', () => {});
@@ -81,10 +81,10 @@ const Time2008 = () => {
       </Portal>
       {/* <!-- 2008 Title --> */}
       <section className="h-screen flex justify-center flex-col">
-        <h1 id="title1" className="title italic text-[7rem] leading-[70%] opacity-50 hidden">
+        <h1 id="title1" className="title italic text-[7rem] leading-[70%] opacity-20 hidden">
           Browser
         </h1>
-        <h1 id="title2" className="title italic text-[7rem] leading-[70%] opacity-50 hidden">
+        <h1 id="title2" className="title italic text-[7rem] leading-[70%] opacity-20 hidden">
           wars
         </h1>
       </section>
