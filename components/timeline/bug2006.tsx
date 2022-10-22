@@ -2,12 +2,31 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { IMAGES } from 'lib/assets';
 import styles from 'styles/bug.module.scss';
-import { memo, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ImageWrapper from 'components/common/image-wrapper';
 
 const Bug2006 = () => {
+  const alertContainer = useRef<HTMLElement>(null);
+  const alertAudio = useRef<HTMLAudioElement>(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    const alertTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: alertContainer.current,
+        start: 'top top',
+        markers: true,
+      },
+      onStart: () => {
+        alertAudio.current?.play();
+      },
+    });
+
+    alertTimeline.to(alertContainer.current, { backgroundColor: '#ff1f1f', duration: 0.1 });
+    alertTimeline.to(alertContainer.current, { backgroundColor: '#edff1f', duration: 0.1 });
+    alertTimeline.to(alertContainer.current, { backgroundColor: '#ffffff', duration: 0.1 });
+    alertTimeline.to(alertContainer.current, { backgroundColor: '#11104D', duration: 0.1 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -67,7 +86,8 @@ const Bug2006 = () => {
   return (
     <>
       {/* <!-- 2006 Bug --> */}
-      <section id="bug-container" className="relative h-screen w-screen bg-[#11104D]">
+      <audio src="/audio/alert.mp3" controls className="hidden" ref={alertAudio} />
+      <section id="bug-container" className="relative h-screen w-screen bg-[#11104D]" ref={alertContainer}>
         <ImageWrapper src={IMAGES.BUG.BUG1} alt="bug" className={`${styles.bug1} middle`} id="bug1" />
         <ImageWrapper src={IMAGES.BUG.BUG2} alt="bug" className={`${styles.bug2} right-0 top-5`} id="bug2" />
         <ImageWrapper src={IMAGES.BUG.BUG3} alt="bug" className={`${styles.bug3} left-8 top-2`} id="bug3" />
@@ -130,4 +150,4 @@ const Bug2006 = () => {
   );
 };
 
-export default memo(Bug2006);
+export default Bug2006;
