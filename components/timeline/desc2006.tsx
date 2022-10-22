@@ -72,8 +72,8 @@ const Desc2006 = () => {
       x: 0,
       scrollTrigger: {
         trigger: header2.current,
-        start: '+=1500% top',
-        end: '+=110%',
+        start: '+=1700% top',
+        end: '+=150%',
         scrub: true,
       },
     });
@@ -83,7 +83,7 @@ const Desc2006 = () => {
       x: 0,
       scrollTrigger: {
         trigger: header3.current,
-        start: '+=1100% top',
+        start: '+=1300% top',
         end: '+=150%',
         scrub: true,
       },

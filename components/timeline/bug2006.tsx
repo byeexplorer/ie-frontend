@@ -16,7 +16,6 @@ const Bug2006 = () => {
       scrollTrigger: {
         trigger: alertContainer.current,
         start: 'top top',
-        markers: true,
       },
       onStart: () => {
         alertAudio.current?.play();
