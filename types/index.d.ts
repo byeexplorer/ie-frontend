@@ -3,6 +3,7 @@ type Team = {
   name: string;
   job: string;
   comment: string;
+  profile: string;
 };
 
 type CardColor = 'blue' | 'purple' | 'green' | 'gray';
