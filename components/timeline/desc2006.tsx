@@ -3,6 +3,7 @@ import { memo, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from 'styles/timeline.module.scss';
+import { ImageWrapper } from 'components/common';
 
 const description = [
   'Internet Explorer users were at risk for',
@@ -31,7 +32,7 @@ const Desc2006 = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // square continaer
+    // square container
     const sqaureTl = gsap.timeline({
       scrollTrigger: {
         trigger: squareContainer.current,
@@ -41,9 +42,10 @@ const Desc2006 = () => {
         pin: true,
       },
     });
-    sqaureTl.to(square.current, {
-      width: '100%',
-    });
+    sqaureTl.to(square.current, { height: '120%' });
+    sqaureTl.to(square.current, { rotate: '120deg' });
+    sqaureTl.to(square.current, { width: '150vw', height: '200vw' });
+
     sqaureTl.fromTo(background.current, { x: '100%' }, { x: '0' });
 
     gsap.set(header1.current, { x: 800 });
@@ -115,16 +117,12 @@ const Desc2006 = () => {
     <article className="bg-blue relative">
       {/* <!-- 2006 3D object #1 --> */}
       <section className="fix-container relative w-screen h-screen grid place-items-center" ref={squareContainer}>
-        <div className="bg-[#5a8efd] absolute middle origin-center aspect-[7/6] z-0" ref={square} />
-        <video
-          src="videos/under2006.mp4"
-          loop={true}
-          autoPlay={true}
-          controls={false}
-          muted={true}
-          playsInline={true}
-          className="h-[30vw] m-auto z-[1]"
+        <div
+          className="bg-[#010652] absolute origin-center w-[35vw] h-[35vw] rounded-[50%] z-0"
+          style={{ transform: 'rotate(75deg)' }}
+          ref={square}
         />
+        <ImageWrapper src="videos/under2006.gif" className="w-[50%] aspect-square relative" />
         <article className="w-[100vw] h-[100vh] absolute text-blue z-20" ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
             <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>

@@ -11,9 +11,9 @@ export default function MainPage() {
     <>
       <Navbar />
       {/* <!-- Overview --> */}
-      <Overview />
+      {/* <Overview /> */}
       {/* <!-- Timeline --> */}
-      <Time1995 />
+      {/* <Time1995 /> */}
       <Time2006 />
       <Desc2006 />
       <Bug2006 />
