@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useMemo, useState } from 'react';
 
 const teams: Team[] = [
@@ -5,25 +6,29 @@ const teams: Team[] = [
     id: 1,
     name: 'Dami Kim',
     job: 'BX Designer',
-    comment: 'The quick brown fox jumps over the lazy dog. The quick brown fox jumps ',
+    comment: '브랜드 디자이너 김다미입니다.<br />Visual Communication Design을 탐구합니다.',
+    profile: './images/profile/dami.jpeg',
   },
   {
     id: 2,
     name: 'Hyeong Tae Kim',
-    job: 'BX Designer',
-    comment: 'The quick brown fox jumps over the lazy dog. The quick brown fox jumps ',
+    job: 'Frontend Developer',
+    comment: '프론트엔드 개발자 김형태입니다.',
+    profile: './images/profile/hyeontae.jpeg',
   },
   {
     id: 3,
     name: 'Seongeun Jeong',
-    job: 'Frontend Developer',
-    comment: 'The quick brown fox jumps over the lazy dog. The quick brown fox jumps ',
+    job: 'BX Designer',
+    comment: '모션디자이너 정성은입니다.',
+    profile: './images/profile/seongeun.jpeg',
   },
   {
     id: 4,
     name: 'Yena Hwang',
     job: 'Frontend Developer',
-    comment: 'The quick brown fox jumps over the lazy dog. The quick brown fox jumps ',
+    comment: '프론트엔드 개발자 황예나입니다. <br/>이해를 동반한 코드를 작성합니다.',
+    profile: './images/profile/yena.jpg',
   },
 ];
 
@@ -44,17 +49,24 @@ const Aboutus = () => {
       <section className="flex gap-9 w-full">
         <div className="w-[258px]">
           {/* TODO: insert image */}
-          <div className="w-full h-[341px] bg-[#3c3c3c] rounded-md" />
+          <div className="w-full h-[341px] bg-[#3c3c3c] rounded-md relative">
+            <Image
+              src={teams.filter((v) => v.id === selectId)[0].profile}
+              alt="profile"
+              layout="fill"
+              className="rounded-md grayscale"
+            />
+          </div>
           <h2 className="text-xs mt-1">{target.name}</h2>
           <h4 className="text-[21px]">{target.job}</h4>
-          <p className="mt-[14px] text-[14px]">{target.comment}</p>
+          <p className="mt-[14px] text-[14px]" dangerouslySetInnerHTML={{ __html: target.comment }} />
         </div>
         <div className="w-[60%]">
-          <ul className="w-full flex gap-2 flex-col" onClick={() => console.log('asdf')}>
+          <ul className="w-full flex gap-2 flex-col">
             {teams.map((team) => (
               <li
                 key={team.id}
-                onClick={(e) => {
+                onClick={() => {
                   handleSelect(team.id);
                 }}
                 className={`border-b-[2px] border-[#444444] relative ${
