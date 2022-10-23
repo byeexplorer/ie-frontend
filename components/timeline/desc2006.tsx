@@ -59,10 +59,12 @@ const Desc2006 = () => {
         onEnter: () => {
           gsap.to('#navbar', { color: '#3834FF' });
           gsap.to('#hamburger > div', { background: '#3834FF' });
+          gsap.to('#navbar-icon', { filter: 'none' });
         },
         onLeaveBack: () => {
           gsap.to('#navbar', { color: 'white' });
           gsap.to('#hamburger > div', { background: 'white' });
+          gsap.to('#navbar-icon', { filter: 'brightness(0) invert(1)' });
         },
       },
     });

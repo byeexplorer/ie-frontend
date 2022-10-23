@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Hamburger from './hamburger';
 import MenuList from './menu-list';
 import MenuItem from './menu-item';
+import Image from 'next/image';
 
 const DURATION = 2;
 
@@ -29,19 +30,24 @@ const Navbar = () => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   useEffect(() => {
+    gsap.set('#navbar-icon', { filter: 'brightness(0) invert(1)' });
+
     const currentColor = gsap.getProperty('#navbar', 'color');
     currentNavbarColor.current = currentColor as string;
     if (isMenuOpen) {
       gsap.to('#navbar', { color: '#3834FF' });
       gsap.to('#hamburger > div', { background: '#3834FF' });
+      gsap.to('#navbar-icon', { filter: 'none' });
       previousNavbarColor.current = currentNavbarColor.current;
     } else if (previousNavbarColor.current === 'white') {
       gsap.to('#navbar', { color: 'white' });
       gsap.to('#hamburger > div', { background: 'white' });
+      gsap.to('#navbar-icon', { filter: 'brightness(0) invert(1)' });
       previousNavbarColor.current = currentNavbarColor.current;
     } else if (previousNavbarColor.current === '#3834ff') {
       gsap.to('#navbar', { color: '#3834ff' });
       gsap.to('#hamburger > div', { background: '#3834ff' });
+      gsap.to('#navbar-icon', { filter: 'none' });
       previousNavbarColor.current = currentNavbarColor.current;
     }
   }, [isMenuOpen]);
@@ -72,7 +78,9 @@ const Navbar = () => {
         id="navbar"
         className="fixed top-0 left-0 w-full z-30 flex justify-between text-white px-[0.75rem] py-[0.15rem]"
       >
-        <div className="z-20">아이콘</div>
+        <div id="navbar-icon" className="z-20 relative w-[4rem]">
+          <Image src="/images/navbar/blue.png" alt="" layout="fill" />
+        </div>
         <Hamburger onClick={handleHamburgerClick} isMenuOpen={isMenuOpen} />
         <MenuList isMenuOpen={isMenuOpen}>
           <>
