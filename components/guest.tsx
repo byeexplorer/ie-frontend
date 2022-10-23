@@ -4,6 +4,7 @@ import { GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
 import { postComments } from 'lib/api';
 import { useCommentStore } from 'lib/hooks';
+import Submit from './submit';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
 const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
@@ -13,6 +14,8 @@ const Guest = () => {
   const [obj, setObj] = useState<CardModel>('oldest');
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
+
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const { fetchComments } = useCommentStore();
 
@@ -27,8 +30,7 @@ const Guest = () => {
     const status = await postComments({ color, comment, name, obj });
 
     if (status && status === 201) {
-      //TODO: change to success icon
-      alert('전송 성공!');
+      setIsSubmit(true);
       fetchComments();
       resetSubmit();
     }
@@ -47,6 +49,16 @@ const Guest = () => {
   useEffect(() => {
     fetchComments();
   }, [fetchComments]);
+
+  useEffect(() => {
+    if (isSubmit) {
+      const timer = setTimeout(() => {
+        setIsSubmit(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmit]);
 
   return (
     <section id="guest-explorer" className="flex flex-col items-center mt-20">
@@ -132,6 +144,7 @@ const Guest = () => {
       >
         Submit
       </button>
+      {isSubmit && <Submit />}
     </section>
   );
 };

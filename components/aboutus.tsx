@@ -28,7 +28,7 @@ const teams: Team[] = [
     name: 'Yena Hwang',
     job: 'Frontend Developer',
     comment: '프론트엔드 개발자 황예나입니다. <br/>이해를 동반한 코드를 작성합니다.',
-    profile: './images/profile/yena.jpg',
+    profile: './images/profile/yena.jpeg',
   },
 ];
 
