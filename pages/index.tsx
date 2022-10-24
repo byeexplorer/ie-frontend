@@ -6,9 +6,9 @@ import Overview from 'components/overview/overview';
 import { Desc2006, Bug2006, Time2006, Time2008, Time2022, Time1995 } from 'components/timeline';
 import { CommentContext, useComment } from 'lib/hooks';
 
-export default function MainPage() {
+function MainPage() {
   return (
-    <>
+    <main>
       <Navbar />
       {/* <!-- Overview --> */}
       <Overview />
@@ -28,6 +28,8 @@ export default function MainPage() {
         <Guest />
         <Otherpeople />
       </CommentContext.Provider>
-    </>
+    </main>
   );
 }
+
+export default MainPage;
