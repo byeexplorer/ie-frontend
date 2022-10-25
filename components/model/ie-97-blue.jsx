@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei';
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/3d/ie-97-blue.gltf');
   return (
-    <group {...props} dispose={null} scale={6}>
+    <group {...props} dispose={null} scale={30}>
       <mesh
         geometry={nodes.Curve.geometry}
         material={materials['Material.004']}
