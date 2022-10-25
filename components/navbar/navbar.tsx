@@ -18,10 +18,10 @@ const MENU = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMenuClick, setIsMenuClick] = useState(false);
+  // const [isMenuClick, setIsMenuClick] = useState(false);
   const previousNavbarColor = useRef<string>('white');
   const currentNavbarColor = useRef<string>('white');
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  // const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleHamburgerClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,22 +52,22 @@ const Navbar = () => {
     }
   }, [isMenuOpen]);
 
-  useEffect(() => {
-    const tl = gsap.timeline();
-    if (isMenuClick) {
-      // dimmed 조정하기
-      tl.to('#menuclick-overlay', { opacity: 0.8, duration: 1 });
-      tl.to('#menuclick-overlay', { opacity: 0, duration: 1 });
-      timerRef.current = setTimeout(() => {
-        setIsMenuClick(false);
-      }, DURATION * 1000);
-    }
-    () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [isMenuClick]);
+  // useEffect(() => {
+  //   const tl = gsap.timeline();
+  //   if (isMenuClick) {
+  //     // dimmed 조정하기
+  //     tl.to('#menuclick-overlay', { opacity: 0.8, duration: 1 });
+  //     tl.to('#menuclick-overlay', { opacity: 0, duration: 1 });
+  //     timerRef.current = setTimeout(() => {
+  //       setIsMenuClick(false);
+  //     }, DURATION * 1000);
+  //   }
+  //   () => {
+  //     if (timerRef.current) {
+  //       clearTimeout(timerRef.current);
+  //     }
+  //   };
+  // }, [isMenuClick]);
   return (
     <>
       <div
@@ -90,7 +90,7 @@ const Navbar = () => {
                 onClick={() => {
                   gsap.to(window, { scrollTo: menuItem.selector, duration: DURATION });
                   handleHamburgerClick();
-                  setIsMenuClick(true);
+                  // setIsMenuClick(true);
                 }}
               >
                 {menuItem.menu}
@@ -99,7 +99,7 @@ const Navbar = () => {
           </>
         </MenuList>
       </div>
-      {isMenuClick && <div id="menuclick-overlay" className="fixed top-0 left-0 h-full w-full bg-black z-20"></div>}
+      {/* {isMenuClick && <div id="menuclick-overlay" className="fixed top-0 left-0 h-full w-full bg-black z-20"></div>} */}
     </>
   );
 };
