@@ -10,10 +10,10 @@ function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     if (isMobileScreen && router.pathname !== '/mobile') {
-      router.push('/mobile');
+      router.replace('/mobile');
     }
     if (!isMobileScreen && router.pathname !== '/') {
-      router.push('/');
+      router.replace('/');
     }
   }, [isMobileScreen, router]);
 
