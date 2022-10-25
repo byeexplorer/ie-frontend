@@ -12,7 +12,7 @@ const HoverLogo = ({ className }: { className?: string }) => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ref.current,
-        start: 3100,
+        start: '+=2000',
       },
     });
 

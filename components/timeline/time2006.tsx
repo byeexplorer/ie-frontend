@@ -163,16 +163,16 @@ const Time2006 = () => {
           className="absolute right-[-2rem] bottom-[-1rem]"
           toParams={{ y: '-100', rotate: 85 }}
         />
-        <span className="text-[11rem] leading-[7.5rem]" id="first">
+        <span className="text-[38vmax] leading-[7.5rem]" id="first">
           2
         </span>
-        <span className="text-[11rem] leading-[7.5rem]" id="second">
+        <span className="text-[38vmax] leading-[7.5rem]" id="second">
           0
         </span>
-        <span className="text-[11rem] leading-[7.5rem]" id="third">
+        <span className="text-[38vmax] leading-[7.5rem]" id="third">
           0
         </span>
-        <span className="text-[11rem] leading-[7.5rem]" id="fourth">
+        <span className="text-[38vmax] leading-[7.5rem]" id="fourth">
           6
         </span>
       </section>
