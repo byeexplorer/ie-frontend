@@ -1,0 +1,159 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v1.1.46",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "extras": {
+        "glTF2ExportSettings": {
+          "export_apply": 1,
+          "export_extras": 1,
+          "export_lights": 1,
+          "export_selected": 1,
+          "export_tangents": 1
+        }
+      },
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Curve",
+      "rotation": [
+        0.6125778555870056,
+        0.23966889083385468,
+        -0.20671775937080383,
+        0.7242754697799683
+      ],
+      "scale": [
+        2.95853853225708,
+        2.9585394859313965,
+        2.958540439605713
+      ],
+      "translation": [
+        -0.004493415355682373,
+        -0.03449854254722595,
+        -0.0016139671206474304
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "BLEND",
+      "emissiveFactor": [
+        0.015499036759138107,
+        0.00781374890357256,
+        0.30435115098953247
+      ],
+      "name": "Material.004",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022445280104875565,
+          0.08957649022340775,
+          0.8000000715255737,
+          1
+        ],
+        "metallicFactor": 1,
+        "roughnessFactor": 0.05692308768630028
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Curve",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 4014,
+      "max": [
+        0.11683306843042374,
+        0.15307196974754333,
+        0.11504416167736053
+      ],
+      "min": [
+        -0.13613289594650269,
+        -0.15492452681064606,
+        -0.12046229094266891
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 4014,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 4014,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 4014,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 19008,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 48168,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 48168,
+      "byteOffset": 48168
+    },
+    {
+      "buffer": 0,
+      "byteLength": 64224,
+      "byteOffset": 96336
+    },
+    {
+      "buffer": 0,
+      "byteLength": 32112,
+      "byteOffset": 160560
+    },
+    {
+      "buffer": 0,
+      "byteLength": 38016,
+      "byteOffset": 192672
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "ie-97-blue_data.bin",
+      "byteLength": 230688
+    }
+  ]
+}

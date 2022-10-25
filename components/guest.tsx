@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
-import { GuestCard } from './common';
+import { CommonButton, GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
 import { postComments } from 'lib/api';
 import { useCommentStore } from 'lib/hooks';
-import Submit from './submit';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
 const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
@@ -136,15 +135,7 @@ const Guest = () => {
         </section>
       </main>
 
-      <button
-        className={`rounded-2xl text-dark text-[26px] font-bold px-8 py-1 mt-6 ${
-          name.length > 0 && comment.length > 0 ? 'bg-white' : 'bg-[#6c6c6c]'
-        }`}
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
-      {isSubmit && <Submit />}
+      <CommonButton isActive={name.length > 0 && comment.length > 0} content="Submit" onClick={handleSubmit} />
     </section>
   );
 };
