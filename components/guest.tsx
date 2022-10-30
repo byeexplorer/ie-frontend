@@ -49,6 +49,10 @@ const Guest = () => {
   const handleModelClick = (value: CardModel) => setObj(value);
 
   useEffect(() => {
+    fetchComments();
+  }, [fetchComments]);
+
+  useEffect(() => {
     if (isSubmit) {
       const timer = setTimeout(() => {
         setIsSubmit(false);
