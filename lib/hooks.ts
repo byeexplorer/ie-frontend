@@ -9,7 +9,6 @@ export const useComment = () => {
 
     if (res) {
       if (res.length % 2 !== 0 && res.length > 5) {
-        //TODO: DB 최신순 정렬 확인
         res.shift();
       }
       setComments(res);
