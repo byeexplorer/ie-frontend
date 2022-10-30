@@ -11,14 +11,14 @@ const Time2022 = () => {
       scrollTrigger: {
         trigger: '#ending',
         start: 'top top',
-        end: '+=500%',
+        end: '+=600%',
         scrub: 0.3,
         pin: true,
       },
     });
     tl.to('#ending1', { y: -40, autoAlpha: 0, delay: 2 }, '>');
     tl.fromTo('#ending2', { y: 40, autoAlpha: 0, delay: 2 }, { y: 0, autoAlpha: 1, delay: 2 });
-    tl.to('#ending2', { y: -40, autoAlpha: 0, delay: 3 });
+    tl.to('#ending2', { y: -40, autoAlpha: 0, delay: 2 });
   }, []);
 
   return (
@@ -45,7 +45,6 @@ const Time2022 = () => {
       <p id="ending2" className="absolute middle">
         Bye, Explorer!
       </p>
-      <div className="pb-[300px]" />
     </article>
   );
 };
