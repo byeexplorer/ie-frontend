@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 const ArrowIcon = ({
   className,
   clicked,
@@ -30,4 +28,4 @@ const ArrowIcon = ({
   );
 };
 
-export default memo(ArrowIcon);
+export default ArrowIcon;

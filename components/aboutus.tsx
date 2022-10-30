@@ -21,8 +21,8 @@ const teams: Team[] = [
   {
     id: 3,
     name: 'Seongeun Jeong',
-    job: 'BX Designer',
-    comment: '모션디자이너 정성은입니다.',
+    job: 'Motion Designer',
+    comment: '움직임에 생동감을 불어넣어 사용자의 경험을 확장시키는 모션 디자이너 정성은입니다.',
     profile: './images/profile/seongeun.jpeg',
     email: 'Jseongeun25@gmail.com',
   },
@@ -49,7 +49,7 @@ const Aboutus = () => {
   };
 
   return (
-    <article id="host-explorer" className="ml-[13%] h-screen flex justify-center flex-col">
+    <article id="host-explorer" className="ml-[13%] h-screen flex justify-center flex-col mt-[30%]">
       <section className="mb-4">
         <h1>Host Explorer</h1>
         <h4 className="text-[26px]">About our team</h4>
@@ -62,6 +62,7 @@ const Aboutus = () => {
               alt="profile"
               layout="fill"
               className="rounded-md grayscale"
+              priority={true}
             />
           </div>
           <h2 className="text-xs mt-1">{target.name}</h2>
@@ -71,7 +72,7 @@ const Aboutus = () => {
             className="mt-[16px] text-[10px] flex items-center gap-[4px] w-full justify-end"
             onClick={() => handleEmail(teams.filter((v) => v.id === selectId)[0].email)}
           >
-            <Image src="/icons/email.svg" alt="email" width={16} height={12} layout="fixed" />
+            <Image src="/icons/email.svg" alt="email" width={16} height={12} layout="fixed" priority={true} />
             <p>E-mail</p>
           </button>
         </div>
