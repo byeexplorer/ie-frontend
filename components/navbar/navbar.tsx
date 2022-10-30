@@ -78,7 +78,7 @@ const Navbar = () => {
         id="navbar"
         className="fixed top-0 left-0 w-full z-30 flex justify-between text-white px-[0.75rem] py-[0.4rem]"
       >
-        <div id="navbar-icon" className="z-20 relative w-[4rem]">
+        <div id="navbar-icon" className="z-20 relative w-[3.5rem] aspect-[12/3]">
           <Image src="/images/navbar/blue.png" alt="" layout="fill" priority={true} />
         </div>
         <Hamburger onClick={handleHamburgerClick} isMenuOpen={isMenuOpen} />
