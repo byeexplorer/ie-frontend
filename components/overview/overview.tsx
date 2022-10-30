@@ -31,9 +31,9 @@ const Overview = () => {
     <article id="overview">
       <section id="scene">
         <div className="absolute w-screen h-screen flex justify-center items-center">
-          <div className="text-[12vw] leading-[16vw] text-center z-20">
+          <div className="text-[12vw] leading-[13vw] text-center z-20">
             <p>Internet Explorer,</p>
-            <p>Rest In Peace.</p>
+            <p className="italic">Rest In Peace.</p>
           </div>
           <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
             <Image src={'/videos/ie-rotate.gif'} alt="object" width={600} height={600} priority={true} />
@@ -42,7 +42,7 @@ const Overview = () => {
       </section>
       <section id="intro" className="relative">
         <div className="absolute w-screen h-screen flex justify-center items-center">
-          <div className="text-[5vw] leading-[8vw] text-center">
+          <div className="text-[5vw] leading-[6.4vw] text-center">
             <p>Microsoft is finally retiring</p>
             <p>consumer version of Internet Explorer.</p>
             <p>It announced the plan last year,</p>
