@@ -1,5 +1,3 @@
-import React, { memo } from 'react';
-
 type Props = {
   isActive: boolean;
   content: string;
@@ -20,4 +18,4 @@ const Button = ({ content, isActive, onClick, className }: Props) => {
   );
 };
 
-export default memo(Button);
+export default Button;

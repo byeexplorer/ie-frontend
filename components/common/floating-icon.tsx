@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { memo, useEffect } from 'react';
+import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
@@ -31,9 +31,9 @@ const FloatingIcon = ({ src, className, toParams, id = 'section2' }: Props) => {
 
   return (
     <div className={className} id={id}>
-      <Image src={src} alt="icon" width={72} height={72} />
+      <Image src={src} alt="icon" width={72} height={72} priority={true} />
     </div>
   );
 };
 
-export default memo(FloatingIcon);
+export default FloatingIcon;

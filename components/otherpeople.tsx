@@ -58,7 +58,7 @@ const Otherpeople = () => {
   }, [comments]);
 
   return (
-    <section className="w-full text-center pt-[15%] pb-[3%] flex flex-col items-center">
+    <section className="w-full text-center pt-[15%] pb-[3%] flex flex-col items-center" id="other-people">
       <h1>You can see other people!</h1>
       <h2 className="text-[1.5vw] mb-10">{comments.length} people left comments.</h2>
       {swiperParams && (

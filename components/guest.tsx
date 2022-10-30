@@ -1,9 +1,11 @@
+import { gsap } from 'gsap';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
 import { CommonButton, GuestCard } from './common';
 import styles from 'styles/guestcard.module.scss';
 import { postComments } from 'lib/api';
 import { useCommentStore } from 'lib/hooks';
+import Submit from './submit';
 
 const cardColor: CardColor[] = ['blue', 'green', 'purple', 'gray'];
 const cardModel: CardModel[] = ['oldest', 'edge', 'explorer', 'newest'];
@@ -31,6 +33,7 @@ const Guest = () => {
     if (status && status === 201) {
       setIsSubmit(true);
       fetchComments();
+      gsap.to(window, { scrollTo: '#other-people', duration: 1 });
       resetSubmit();
     }
   }, [color, comment, name, obj, resetSubmit, fetchComments]);
@@ -42,12 +45,8 @@ const Guest = () => {
     createComment();
   };
 
-  const handleColorClick = useCallback((value: CardColor) => setColor(value), []);
-  const handleModelClick = useCallback((value: CardModel) => setObj(value), []);
-
-  useEffect(() => {
-    fetchComments();
-  }, [fetchComments]);
+  const handleColorClick = (value: CardColor) => setColor(value);
+  const handleModelClick = (value: CardModel) => setObj(value);
 
   useEffect(() => {
     if (isSubmit) {
@@ -92,7 +91,7 @@ const Guest = () => {
                   onClick={() => handleModelClick(card)}
                 >
                   <div className="relative w-[80%] h-[65%]">
-                    <Image src={`/images/models/${card}-${color}.png`} alt="model" layout="fill" />
+                    <Image src={`/images/models/${card}-${color}.png`} alt="model" layout="fill" priority={true} />
                   </div>
                 </button>
               ))}
@@ -136,6 +135,7 @@ const Guest = () => {
       </main>
 
       <CommonButton isActive={name.length > 0 && comment.length > 0} content="Submit" onClick={handleSubmit} />
+      {isSubmit && <Submit />}
     </section>
   );
 };

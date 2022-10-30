@@ -135,7 +135,7 @@ const Desc2006 = () => {
             </h1>
             <div className="flex ml-5" id="text-2" ref={header3}>
               <h1 className="text-[8vw] leading-[120%] mt-3 mr-4">Troubles</h1>
-              <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
+              <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} priority={true} />
             </div>
           </div>
         </article>
