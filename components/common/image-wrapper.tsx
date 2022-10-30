@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { forwardRef, memo } from 'react';
+import { forwardRef } from 'react';
 
 type Props = {
   className: string;
@@ -15,4 +15,4 @@ const ImageWrapper = forwardRef<HTMLDivElement, Props>(({ className, src, alt, i
 ));
 
 ImageWrapper.displayName = 'ImageWrapper';
-export default memo(ImageWrapper);
+export default ImageWrapper;

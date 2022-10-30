@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import { memo, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const Time2022 = () => {
   useEffect(() => {
