@@ -1,5 +1,6 @@
 import useResizeObserver from 'lib/hooks';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import '../styles/globals.scss';
@@ -10,17 +11,34 @@ function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     if (isMobileScreen && router.pathname !== '/mobile') {
-      router.push('/mobile');
+      router.replace('/mobile');
     }
     if (!isMobileScreen && router.pathname !== '/') {
-      router.push('/');
+      router.replace('/');
     }
   }, [isMobileScreen, router]);
 
   return (
-    <main ref={ref}>
-      <Component {...pageProps} />
-    </main>
+    <>
+      <Head>
+        <title>Bye, explorer</title>
+        <meta name="description" content="인터넷 익스플로러의 종료를 기념하는 웹페이지" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" /> */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon.png" />
+        <link rel="manifest" href="/assets/favicon/manifest.json" />
+        <meta name="og:title" content="Bye, explorer" />
+        <meta name="og:description" content="bye, Internet explorer" />
+        <meta name="og:type" content="website" />
+        <meta name="og:url" content="https://bye-explorer.web.app/" />
+        <meta name="og:image" content="/images/navbar/blue.png" />
+        <meta property="og:article:author" content="bye exlorer" />
+      </Head>
+      <main ref={ref}>
+        <Component {...pageProps} />
+      </main>
+    </>
   );
 }
 

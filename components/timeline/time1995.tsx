@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
@@ -125,4 +125,4 @@ const Time1995 = () => {
   );
 };
 
-export default memo(Time1995);
+export default Time1995;
