@@ -4,6 +4,7 @@ type Team = {
   job: string;
   comment: string;
   profile: string;
+  email: string;
 };
 
 type CardColor = 'blue' | 'purple' | 'green' | 'gray';
