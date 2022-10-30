@@ -124,7 +124,7 @@ const Desc2006 = () => {
           style={{ transform: 'rotate(75deg)' }}
           ref={square}
         />
-        <ImageWrapper src="videos/under2006.gif" className="w-[40vw] aspect-square relative" />
+        <ImageWrapper src="videos/under2006.gif" className="w-[60%] aspect-square relative translate-y-[-5%]" />
         <article className="w-[100vw] h-[100vh] absolute text-blue z-20" ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
             <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
