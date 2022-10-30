@@ -24,7 +24,7 @@ const teams: Team[] = [
     job: 'BX Designer',
     comment: '모션디자이너 정성은입니다.',
     profile: './images/profile/seongeun.jpeg',
-    email: 'test@naver.com',
+    email: 'Jseongeun25@gmail.com',
   },
   {
     id: 4,
