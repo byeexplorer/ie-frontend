@@ -31,7 +31,7 @@ const Overview = () => {
     <article id="overview">
       <section id="scene">
         <div className="absolute w-screen h-screen flex justify-center items-center">
-          <div className="text-[12vw] leading-[13vw] text-center z-20">
+          <div className="text-[11vw] leading-[13vw] text-center z-20">
             <p>Internet Explorer,</p>
             <p className="italic">Rest In Peace.</p>
           </div>
@@ -42,11 +42,17 @@ const Overview = () => {
       </section>
       <section id="intro" className="relative">
         <div className="absolute w-screen h-screen flex justify-center items-center">
-          <div className="text-[5vw] leading-[6.4vw] text-center">
-            <p>Microsoft is finally retiring</p>
-            <p>consumer version of Internet Explorer.</p>
+          <div className="text-[3vw] leading-[4vw] text-center italic">
+            <p>
+              <b className="not-italic font-normal">Microsoft</b> is finally retiring
+            </p>
+            <p>
+              consumer version of <b className="not-italic font-normal">Internet Explorer.</b>
+            </p>
             <p>It announced the plan last year,</p>
-            <p>making Internet Explorer 11 its final version.</p>
+            <p>
+              making <b className="not-italic font-normal">Internet Explorer 11</b> its final version.
+            </p>
           </div>
         </div>
         <div className="absolute w-screen h-screen flex justify-center items-center">

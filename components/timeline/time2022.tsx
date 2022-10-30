@@ -34,7 +34,7 @@ const Time2022 = () => {
           />
         </div>
         <h4 className="fadeout text-[1.2rem] z-10">2022</h4>
-        <p className="fadeout z-10">
+        <p className="fadeout z-10  text-[0.7rem] leading-[1rem]">
           After 25+ years of helping people use and experience the web,
           <br />
           Internet Explorer (IE) is officially retired and
@@ -42,7 +42,7 @@ const Time2022 = () => {
           out of support as of today, June 15, 2022.
         </p>
       </section>
-      <p id="ending2" className="absolute middle">
+      <p id="ending2" className="absolute middle text-[0.7rem] leading-[1rem]">
         Bye, Explorer!
       </p>
     </article>

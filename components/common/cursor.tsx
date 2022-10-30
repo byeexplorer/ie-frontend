@@ -23,8 +23,8 @@ const Cursor = ({ visible }: Props) => {
       style={{
         opacity: `${visible ? 1 : 0}`,
         transition: 'opacity 0.3s',
-        width: '1rem',
-        height: '1rem',
+        width: '80px',
+        height: '80px',
         borderRadius: '50%',
         background: '#fff',
         position: 'fixed',
