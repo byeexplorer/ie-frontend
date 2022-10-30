@@ -12,18 +12,18 @@ function MainPage() {
     <main>
       <Navbar />
       {/* <!-- Overview --> */}
-      {/* <Overview /> */}
+      <Overview />
       {/* <!-- Timeline --> */}
-      {/* <Time1995 />
+      <Time1995 />
       <Time2006 />
       <Desc2006 />
       <Bug2006 />
       <div id="cursor-portal">
         <Time2008 />
       </div>
-      <Time2022 /> */}
+      <Time2022 />
       {/* <!-- Aboutus --> */}
-      {/* <Aboutus /> */}
+      <Aboutus />
       {/* <!-- Guest Explorer --> */}
       <CommentContext.Provider value={useComment()}>
         <Guest />
