@@ -130,7 +130,7 @@ const Time2006 = () => {
           id="folder1"
         />
         <p className="z-10 relative">
-          In July 1995 Microsoft released Internet Explorer 1.0
+          In July, 1995 Microsoft released Internet Explorer 1.0
           <br /> as an add-on to the Windows 95 operating system.
         </p>
       </section>
