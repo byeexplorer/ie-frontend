@@ -129,7 +129,7 @@ const Time2006 = () => {
           toParams={{ y: '-142', rotate: 74 }}
           id="folder1"
         />
-        <p>
+        <p className="z-10 relative">
           In July 1995 Microsoft released Internet Explorer 1.0
           <br /> as an add-on to the Windows 95 operating system.
           <br /> In July 1995 Microsoft released Internet Explorer 1.0

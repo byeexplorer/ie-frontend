@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { memo, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from 'styles/timeline.module.scss';
@@ -37,7 +37,7 @@ const Desc2006 = () => {
       scrollTrigger: {
         trigger: squareContainer.current,
         start: 'center center',
-        end: '+=550% bottom',
+        end: '+=700% bottom',
         scrub: true,
         pin: true,
       },
@@ -52,8 +52,8 @@ const Desc2006 = () => {
     gsap.to(header1.current, {
       x: 0,
       scrollTrigger: {
-        trigger: header1.current,
-        start: '+=1000% top',
+        trigger: background.current,
+        start: '+=500% top',
         end: '+=80%',
         scrub: true,
         onEnter: () => {
@@ -73,9 +73,9 @@ const Desc2006 = () => {
     gsap.to(header2.current, {
       x: 0,
       scrollTrigger: {
-        trigger: header2.current,
-        start: '+=1700% top',
-        end: '+=150%',
+        trigger: background.current,
+        start: '+=500% top',
+        end: '+=90%',
         scrub: true,
       },
     });
@@ -84,9 +84,9 @@ const Desc2006 = () => {
     gsap.to(header3.current, {
       x: 0,
       scrollTrigger: {
-        trigger: header3.current,
-        start: '+=1300% top',
-        end: '+=150%',
+        trigger: background.current,
+        start: '+=500% top',
+        end: '+=100%',
         scrub: true,
       },
     });
@@ -124,7 +124,7 @@ const Desc2006 = () => {
           style={{ transform: 'rotate(75deg)' }}
           ref={square}
         />
-        <ImageWrapper src="videos/under2006.gif" className="w-[50%] aspect-square relative" />
+        <ImageWrapper src="videos/under2006.gif" className="w-[40vw] aspect-square relative" />
         <article className="w-[100vw] h-[100vh] absolute text-blue z-20" ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
             <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
@@ -149,13 +149,7 @@ const Desc2006 = () => {
           </div>
           <div className="ml-[37%]">
             {description.map((desc, index) => (
-              <dl
-                className={styles.under}
-                key={index}
-                style={{
-                  marginBottom: description.length - 1 === index ? 0 : '',
-                }}
-              >
+              <dl className={styles.under} key={index}>
                 <dt>{desc}</dt>
                 <dd className={styles.underline} id={`under-${index}`}>
                   <span>{desc}</span>
@@ -169,4 +163,4 @@ const Desc2006 = () => {
   );
 };
 
-export default memo(Desc2006);
+export default Desc2006;

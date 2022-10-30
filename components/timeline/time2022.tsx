@@ -11,7 +11,7 @@ const Time2022 = () => {
       scrollTrigger: {
         trigger: '#ending',
         start: 'top top',
-        end: '+=200%',
+        end: '+=500%',
         scrub: 0.3,
         pin: true,
       },
@@ -39,8 +39,9 @@ const Time2022 = () => {
       <p id="ending2" className="absolute middle">
         Bye, Explorer!
       </p>
+      <div className="pb-[300px]" />
     </article>
   );
 };
 
-export default memo(Time2022);
+export default Time2022;
