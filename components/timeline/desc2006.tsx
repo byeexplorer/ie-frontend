@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import { memo, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from 'styles/timeline.module.scss';
+import { ImageWrapper } from 'components/common';
 
 const description = [
   'Internet Explorer users were at risk for',
@@ -17,38 +18,75 @@ const description = [
 ];
 
 const Desc2006 = () => {
+  const container = useRef<HTMLElement>(null);
+  const blueContainer = useRef<HTMLDivElement>(null);
+  const background = useRef<HTMLDivElement>(null);
+
+  const squareContainer = useRef<HTMLElement>(null);
+  const square = useRef<HTMLDivElement>(null);
+
+  const header1 = useRef<HTMLHeadingElement>(null);
+  const header2 = useRef<HTMLHeadingElement>(null);
+  const header3 = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const rowSection = gsap.utils.toArray('#row');
+    // square container
+    const sqaureTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: squareContainer.current,
+        start: 'center center',
+        end: '+=700% bottom',
+        scrub: true,
+        pin: true,
+      },
+    });
+    sqaureTl.to(square.current, { height: '120%' });
+    sqaureTl.to(square.current, { rotate: '120deg' });
+    sqaureTl.to(square.current, { width: '150vw', height: '200vw' });
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '#row',
-          pin: true,
-          start: 'top top',
-          scrub: true,
-        },
-      })
-      .to(rowSection, { xPercent: -100, ease: 'Power0.easeNone' });
+    sqaureTl.fromTo(background.current, { x: '100%' }, { x: '0' });
 
-    gsap.to('#text-1', {
+    gsap.set(header1.current, { x: 800 });
+    gsap.to(header1.current, {
       x: 0,
       scrollTrigger: {
-        trigger: '#text-1',
-        start: 'center end',
-        end: '+=500',
+        trigger: background.current,
+        start: '+=500% top',
+        end: '+=80%',
+        scrub: true,
+        onEnter: () => {
+          gsap.to('#navbar', { color: '#3834FF' });
+          gsap.to('#hamburger > div', { background: '#3834FF' });
+          gsap.to('#navbar-icon', { filter: 'none' });
+        },
+        onLeaveBack: () => {
+          gsap.to('#navbar', { color: 'white' });
+          gsap.to('#hamburger > div', { background: 'white' });
+          gsap.to('#navbar-icon', { filter: 'brightness(0) invert(1)' });
+        },
+      },
+    });
+
+    gsap.set(header2.current, { x: 1000 });
+    gsap.to(header2.current, {
+      x: 0,
+      scrollTrigger: {
+        trigger: background.current,
+        start: '+=500% top',
+        end: '+=90%',
         scrub: true,
       },
     });
 
-    gsap.to('#text-2', {
+    gsap.set(header3.current, { x: 1200 });
+    gsap.to(header3.current, {
       x: 0,
       scrollTrigger: {
-        trigger: '#text-2',
-        start: 'top end',
-        end: '+=500',
+        trigger: background.current,
+        start: '+=500% top',
+        end: '+=100%',
         scrub: true,
       },
     });
@@ -59,44 +97,59 @@ const Desc2006 = () => {
         scrollTrigger: {
           trigger: `#under-${i}`,
           start: 'center center',
-          end: '+=300',
+          end: '+=30%',
           scrub: true,
         },
       });
     }
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: blueContainer.current,
+        start: 'top top',
+        end: '+=100%',
+        scrub: true,
+      },
+    });
+    tl2.to(blueContainer.current, { duration: 0.3, backgroundColor: '#1C1A80', ease: 'none' });
+    tl2.to(blueContainer.current, { duration: 0.3, backgroundColor: '#11104D', ease: 'none' });
   }, []);
 
   return (
-    <>
+    <article className="bg-blue relative">
       {/* <!-- 2006 3D object #1 --> */}
-      <section id="fix-container">
+      <section className="fix-container relative w-screen h-screen grid place-items-center" ref={squareContainer}>
         <div
-          id="fix-box"
-          className="w-[30vw] h-[30vw] bg-slate-400"
-          style={{ marginBottom: 'calc((100vh - 30vw) / 2)', marginTop: 'calc((100vh - 30vw) / 2)' }}
+          className="bg-[#010652] absolute origin-center w-[35vw] h-[35vw] rounded-[50%] z-0"
+          style={{ transform: 'rotate(75deg)' }}
+          ref={square}
         />
+        <ImageWrapper src="videos/under2006.gif" className="w-[60%] aspect-square relative translate-y-[-5%]" />
+        <article className="w-[100vw] h-[100vh] absolute text-blue z-20" ref={container}>
+          <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
+            <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
+              The Hiatus and
+            </h1>
+            <h1 className="text-[8vw] leading-[120%] ml-5" ref={header2}>
+              Security
+            </h1>
+            <div className="flex ml-5" id="text-2" ref={header3}>
+              <h1 className="text-[8vw] leading-[120%] mt-3 mr-4">Troubles</h1>
+              <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} priority={true} />
+            </div>
+          </div>
+        </article>
       </section>
       {/* <!-- 2006 Description --> */}
       <section className="w-full text-blue">
-        <article id="row" className="w-[100vw] h-[130vh] bg-white translate-x-full">
-          <h1 className="text-5xl ml-5 pt-10 translate-x-full" id="text-1">
-            The Hiatus and Security
-          </h1>
-          <div className="flex ml-5 translate-x-full" id="text-2">
-            <h1 className="text-5xl mt-3 mr-4">Troubles</h1>
-            <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
+        <article className="bg-white pt-[10%] pb-[60%] relative" ref={blueContainer}>
+          {/* <!-- 2006 3D object #2 --> */}
+          <div className="absolute bottom-10 w-full h-[60%] overflow-hidden">
+            <iframe src={'/videos/IE_updown_motion.gif'} className="w-full h-full" scrolling="no" />
           </div>
-        </article>
-        <article className="bg-white">
-          <div className="ml-[45%]">
+          <div className="ml-[37%]">
             {description.map((desc, index) => (
-              <dl
-                className={styles.under}
-                key={index}
-                style={{
-                  marginBottom: description.length - 1 === index ? 0 : '',
-                }}
-              >
+              <dl className={styles.under} key={index}>
                 <dt>{desc}</dt>
                 <dd className={styles.underline} id={`under-${index}`}>
                   <span>{desc}</span>
@@ -106,12 +159,8 @@ const Desc2006 = () => {
           </div>
         </article>
       </section>
-      {/* <!-- 2006 3D object #2 --> */}
-      <section className="w-full py-[15%] bg-white">
-        <article className="w-full h-[425px] bg-slate-300"></article>
-      </section>
-    </>
+    </article>
   );
 };
 
-export default memo(Desc2006);
+export default Desc2006;

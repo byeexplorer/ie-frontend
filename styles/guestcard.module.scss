@@ -1,8 +1,16 @@
-.gradient {
+.gradient,
+.blue,
+.green,
+.purple,
+.gray {
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: var(--dark);
   border-radius: 16px;
+}
+
+.gradient {
+  background: var(--dark);
 }
 
 .blue {
@@ -32,33 +40,92 @@
 
 .guestcard {
   position: relative;
-  width: 22vw;
-  height: 66vh;
+  aspect-ratio: 4/7;
+  width: 19vw;
+  flex: none;
+  // height: 66vh;
   // width: 389px;
   // height: 604px;
+
+  //content
+  section:last-child {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4% 5%;
+    align-items: center;
+
+    & > p {
+      position: absolute;
+      bottom: 18px;
+      right: 20px;
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: calc(100% - 57%);
+      align-items: flex-start;
+      padding: 20px 15px;
+      gap: 9px;
+
+      h3 {
+        // font-size: 22px;
+        flex: none;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      p {
+        margin-top: 10px;
+        // font-size: 18px;
+        font-size: 1vw;
+        text-align: left;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre;
+      }
+    }
+  }
 }
 
-.cardcontent {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 15px 16px;
-  align-items: center;
+.small {
+  width: 16vw;
+  height: 25vw;
+
+  section:last-child article {
+    gap: 3px;
+    padding: 15px 10px;
+
+    h3 {
+      // font-size: 15px;
+      font-size: 1.1vw;
+    }
+    p {
+      // font-size: 13px;
+      font-size: 0.9vw;
+    }
+  }
 }
 
 .profile {
   width: 100%;
-  height: 60%;
+  min-height: 57%;
   // width: 358px;
   // height: 345px;
   background: #000;
   border-radius: 16px;
   justify-self: flex-start;
+  padding: 15%;
 }
 
 .profile-blue {
@@ -74,82 +141,29 @@
   border: 0.698073px solid #a8a8a8;
 }
 
-.view {
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  gap: 15px;
-
-  h3 {
-    font-size: 22px;
-  }
-  p {
-    font-size: 18px;
-  }
-}
-
-.writing {
-  display: flex;
-  flex-direction: column;
+.commentarea {
   width: 100%;
-  flex: 1;
-}
-
-.empty {
-  width: 16vw;
-  height: 48vh;
-  background: #1d1e1f;
-  position: relative;
-  border-radius: 16px;
-}
-
-.emptygradient,
-.emptycontent {
-  width: 100%;
-  height: 100%;
-}
-
-.emptygradient {
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  background: radial-gradient(59.24% 59.24% at 47.11% 15.1%, #494949 0%, rgba(29, 30, 31, 0) 100%),
-    radial-gradient(152.28% 71.59% at 24.09% 114.48%, rgba(94, 94, 94, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
-    radial-gradient(96.36% 47.79% at 100% 97.86%, rgba(27, 27, 27, 0.7) 0%, rgba(29, 30, 31, 0) 100%);
-  border: 0.554777px solid #5c5c5c;
-}
-
-.emptycontent {
-  padding: 10px;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.emptyprofile {
-  width: 100%;
-  height: 60%;
   background: #000;
-  border: 0.554777px solid #5c5c5c;
-  border-radius: 11.0955px;
-  display: grid;
-  place-items: center;
-}
-
-.circle {
-  display: grid;
-  place-items: center;
-  width: 60%;
-  height: 60%;
-  border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(108, 108, 108, 0) 87.5%, rgba(121, 121, 121, 0.43) 100%), #282828;
-
-  &::after {
-    content: '';
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    background: #000;
-    box-shadow: 0px 0px 35.5057px 5.54777px rgba(255, 255, 255, 0.7);
+  border-radius: 0.375rem;
+  font-size: 16px;
+  padding: 1em;
+  resize: none;
+  &::placeholder {
+    color: #646464;
+  }
+  &::-webkit-scrollbar {
+    margin-right: 10px;
+    border-radius: 0.375rem;
+    width: 20px;
+    padding: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 2px;
+    margin-right: 10px;
+    height: 70%;
+    border: 6px solid black;
+    background: #181818;
+    border-radius: 0.375rem;
+    padding: 20px;
   }
 }

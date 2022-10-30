@@ -2,32 +2,47 @@ import Aboutus from 'components/aboutus';
 import Guest from 'components/guest';
 import Navbar from 'components/navbar';
 import Otherpeople from 'components/otherpeople';
+import Overview from 'components/overview/overview';
 import { Desc2006, Bug2006, Time2006, Time2008, Time2022, Time1995 } from 'components/timeline';
+import { CommentContext, useComment } from 'lib/hooks';
+import { NextPageContext } from 'next';
 
-export default function MainPage() {
+function MainPage() {
   return (
-    <>
-      {/* <!-- Timeline --> */}
+    <main>
       <Navbar />
+      {/* <!-- Overview --> */}
+      <Overview />
+      {/* <!-- Timeline --> */}
       <Time1995 />
-      <article className="bg-blue grid place-items-center pt-[20%]">
-        <section className="text-xs font-thin leading-[140%] mb-[30%] text-center">
-          In July 1995 Microsoft released Internet Explorer 1.0
-          <br /> as an add-on to the Windows 95 operating system.
-          <br /> In July 1995 Microsoft released Internet Explorer 1.0
-          <br /> as an add-on to the Windows 95 operating system.
-        </section>
-        <Time2006 />
-        <Desc2006 />
-      </article>
+      <Time2006 />
+      <Desc2006 />
       <Bug2006 />
-      <Time2008 />
+      <div id="cursor-portal">
+        <Time2008 />
+      </div>
       <Time2022 />
       {/* <!-- Aboutus --> */}
       <Aboutus />
       {/* <!-- Guest Explorer --> */}
-      <Guest />
-      <Otherpeople />
-    </>
+      <CommentContext.Provider value={useComment()}>
+        <Guest />
+        <Otherpeople />
+      </CommentContext.Provider>
+    </main>
   );
 }
+
+MainPage.getInitialProps = async ({ res, req }: NextPageContext) => {
+  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+  const isMobile = /Mobile/i.exec(userAgent ?? '');
+
+  if (isMobile && res) {
+    res.writeHead(307, { Location: '/mobile' });
+    res.end();
+  }
+
+  return {};
+};
+
+export default MainPage;

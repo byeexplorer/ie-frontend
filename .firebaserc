@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "bye-explorer"
-  }
+  },
+  "targets": {
+    "bye-explorer": {
+      "hosting": {
+        "qa": [
+          "qa-bye-explorer"
+        ],
+        "master": [
+          "bye-explorer"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
