@@ -31,7 +31,7 @@ const FloatingIcon = ({ src, className, toParams, id = 'section2' }: Props) => {
 
   return (
     <div className={className} id={id}>
-      <Image src={src} alt="icon" width={72} height={72} />
+      <Image src={src} alt="icon" width={72} height={72} priority={true} />
     </div>
   );
 };

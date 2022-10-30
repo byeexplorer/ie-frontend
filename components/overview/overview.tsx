@@ -36,7 +36,7 @@ const Overview = () => {
             <p>Rest In Peace.</p>
           </div>
           <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
-            <Image src={'/videos/ie-rotate.gif'} alt="object" width={600} height={600} />
+            <Image src={'/videos/ie-rotate.gif'} alt="object" width={600} height={600} priority={true} />
           </div>
         </div>
       </section>

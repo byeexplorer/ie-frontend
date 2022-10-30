@@ -25,7 +25,13 @@ const Time2022 = () => {
     <article id="ending">
       <section className="flex justify-center items-center flex-col text-center w-screen h-screen" id="ending1">
         <div className="absolute w-[40%] aspect-square">
-          <Image src={'/videos/ie-rotate.gif'} className="absolute w-full h-full" alt="object" layout="fill" />
+          <Image
+            src={'/videos/ie-rotate.gif'}
+            className="absolute w-full h-full"
+            alt="object"
+            layout="fill"
+            priority={true}
+          />
         </div>
         <h4 className="fadeout text-[1.2rem] z-10">2022</h4>
         <p className="fadeout z-10">

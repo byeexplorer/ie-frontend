@@ -17,7 +17,7 @@ const GuestCard = ({ color, comment, createdAt, name, obj, small, className }: P
       <section>
         <div className={`${styles.profile} ${styles['profile-' + color]}`}>
           <div className="relative w-full h-full aspect-square">
-            <Image src={`/images/models/${obj}-${color}.png`} alt="object" layout="fill" />
+            <Image src={`/images/models/${obj}-${color}.png`} alt="object" layout="fill" priority={true} />
           </div>
         </div>
         <article>
