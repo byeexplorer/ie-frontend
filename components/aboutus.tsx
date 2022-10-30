@@ -22,7 +22,7 @@ const teams: Team[] = [
     id: 3,
     name: 'Seongeun Jeong',
     job: 'BX Designer',
-    comment: '모션디자이너 정성은입니다.',
+    comment: '움직임에 생동감을 불어넣어 사용자의 경험을 확장시키는 모션 디자이너 정성은입니다.',
     profile: './images/profile/seongeun.jpeg',
     email: 'Jseongeun25@gmail.com',
   },
