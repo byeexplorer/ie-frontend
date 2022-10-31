@@ -12,6 +12,6 @@ export const IMAGES = {
     EXPLORER: getFilePath('/browser/explorer.png'),
     CHROME: getFilePath('/browser/chrome.png'),
     FIREFOX: getFilePath('/browser/firefox.png'),
-    SAFARI: getFilePath('/browser/safari.png'),
+    SAFARI: getFilePath('/browser/safari.webp'),
   },
 };
