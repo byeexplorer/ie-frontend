@@ -95,7 +95,7 @@ const Guest = () => {
                   onClick={() => handleModelClick(card)}
                 >
                   <div className="relative w-[80%] h-[65%]">
-                    <Image src={`/images/models/${card}-${color}.png`} alt="model" layout="fill" priority={true} />
+                    <Image src={`/images/models/${card}-${color}.png`} alt="model" layout="fill" />
                   </div>
                 </button>
               ))}

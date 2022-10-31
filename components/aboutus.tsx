@@ -62,7 +62,6 @@ const Aboutus = () => {
               alt="profile"
               layout="fill"
               className="rounded-md grayscale"
-              priority={true}
             />
           </div>
           <h2 className="text-xs mt-1">{target.name}</h2>
@@ -72,7 +71,7 @@ const Aboutus = () => {
             className="mt-[16px] text-[10px] flex items-center gap-[4px] w-full justify-end"
             onClick={() => handleEmail(teams.filter((v) => v.id === selectId)[0].email)}
           >
-            <Image src="/icons/email.svg" alt="email" width={16} height={12} layout="fixed" priority={true} />
+            <Image src="/icons/email.svg" alt="email" width={16} height={12} layout="fixed" />
             <p>E-mail</p>
           </button>
         </div>

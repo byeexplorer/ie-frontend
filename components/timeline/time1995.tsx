@@ -99,22 +99,22 @@ const Time1995 = () => {
               style={{ transformStyle: 'preserve-3d', perspective: 1000, perspectiveOrigin: 'center' }}
             >
               <div id="card" className="absolute w-40 h-28">
-                <Image src="/images/1.png" alt="" layout="fill" priority={true} />
+                <Image src="/images/1.png" alt="" layout="fill" />
               </div>
               <div id="card" className="absolute w-40 h-28">
-                <Image src="/images/2.png" alt="" layout="fill" priority={true} />
+                <Image src="/images/2.png" alt="" layout="fill" />
               </div>
               <div id="card" className="absolute w-40 h-28">
-                <Image src="/images/3.png" alt="" layout="fill" priority={true} />
+                <Image src="/images/3.png" alt="" layout="fill" />
               </div>
               <div id="card" className="absolute w-40 h-28">
-                <Image src="/images/4.png" alt="" layout="fill" priority={true} />
+                <Image src="/images/4.png" alt="" layout="fill" />
               </div>
               <div id="card" className="absolute w-40 h-20 top-1/2 mt-[-2.5rem]">
-                <Image src="/images/5.png" alt="" layout="fill" priority={true} />
+                <Image src="/images/5.png" alt="" layout="fill" />
               </div>
               <div id="card" className="absolute w-40 h-28">
-                <Image src="/images/6.png" alt="" layout="fill" priority={true} />
+                <Image src="/images/6.png" alt="" layout="fill" />
               </div>
             </div>
           </div>

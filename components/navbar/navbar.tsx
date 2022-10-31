@@ -52,22 +52,6 @@ const Navbar = () => {
     }
   }, [isMenuOpen]);
 
-  // useEffect(() => {
-  //   const tl = gsap.timeline();
-  //   if (isMenuClick) {
-  //     // dimmed 조정하기
-  //     tl.to('#menuclick-overlay', { opacity: 0.8, duration: 1 });
-  //     tl.to('#menuclick-overlay', { opacity: 0, duration: 1 });
-  //     timerRef.current = setTimeout(() => {
-  //       setIsMenuClick(false);
-  //     }, DURATION * 1000);
-  //   }
-  //   () => {
-  //     if (timerRef.current) {
-  //       clearTimeout(timerRef.current);
-  //     }
-  //   };
-  // }, [isMenuClick]);
   return (
     <>
       <div
@@ -79,7 +63,7 @@ const Navbar = () => {
         className="fixed top-0 left-0 w-full z-30 flex justify-between text-white px-[0.75rem] py-[0.4rem]"
       >
         <div id="navbar-icon" className="z-20 relative w-[4.5rem] aspect-[13/3] translate-y-1">
-          <Image src="/images/navbar/blue.png" alt="" layout="fill" priority={true} />
+          <Image src="/images/navbar/blue.png" alt="" layout="fill" />
         </div>
         <Hamburger onClick={handleHamburgerClick} isMenuOpen={isMenuOpen} />
         <MenuList isMenuOpen={isMenuOpen}>
