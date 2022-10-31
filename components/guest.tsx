@@ -70,14 +70,15 @@ const Guest = () => {
           <article className="">
             <h2 className="text-[20px]">Choose a card color</h2>
             <div className="flex gap-[11px] mt-2">
-              {cardColor.map((card) => (
+              {cardColor.map((cardColor) => (
                 <button
+                  aria-label={`card-color-${cardColor}`}
                   className={`w-[85px] h-[85px] rounded-[10px] box-border ${
-                    color === card ? 'border-white border' : ''
+                    color === cardColor ? 'border-white border' : ''
                   }`}
-                  style={{ background: `var(--card-${card})` }}
-                  onClick={() => handleColorClick(card)}
-                  key={card}
+                  style={{ background: `var(--card-${cardColor})` }}
+                  onClick={() => handleColorClick(cardColor)}
+                  key={cardColor}
                 />
               ))}
             </div>
@@ -86,16 +87,17 @@ const Guest = () => {
           <article className="mt-5">
             <h2 className="text-[20px]">Choose your character</h2>
             <div className="grid grid-cols-2 gap-1 mt-2">
-              {cardModel.map((card) => (
+              {cardModel.map((cardModel) => (
                 <button
+                  aria-label={`card-model-${cardModel}}`}
                   className={`aspect-[4/5] rounded-[10px] bg-black grid place-items-center box-border ${
-                    card === obj ? 'bg-[#252525] border-white border' : ''
+                    cardModel === obj ? 'bg-[#252525] border-white border' : ''
                   }`}
-                  key={card}
-                  onClick={() => handleModelClick(card)}
+                  key={cardModel}
+                  onClick={() => handleModelClick(cardModel)}
                 >
                   <div className="relative w-[80%] h-[65%]">
-                    <Image src={`/images/models/${card}-${color}.png`} alt="model" layout="fill" />
+                    <Image src={`/images/models/${cardModel}-${color}.png`} alt="model" layout="fill" />
                   </div>
                 </button>
               ))}

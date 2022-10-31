@@ -68,6 +68,7 @@ const Aboutus = () => {
           <h4 className="text-[21px]">{target.job}</h4>
           <p className="mt-[14px] text-[14px]" dangerouslySetInnerHTML={{ __html: target.comment }} />
           <button
+            aria-label="email"
             className="mt-[16px] text-[10px] flex items-center gap-[4px] w-full justify-end"
             onClick={() => handleEmail(teams.filter((v) => v.id === selectId)[0].email)}
           >

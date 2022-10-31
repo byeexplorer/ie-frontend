@@ -8,6 +8,7 @@ type Props = {
 const Button = ({ content, isActive, onClick, className }: Props) => {
   return (
     <button
+      aria-label="submit"
       className={`rounded-2xl text-dark text-[26px] font-bold px-8 py-1 mt-6 ${
         isActive ? 'bg-white' : 'bg-[#6c6c6c]'
       } ${className}`}
