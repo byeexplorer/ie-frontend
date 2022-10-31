@@ -33,16 +33,4 @@ function MainPage() {
   );
 }
 
-MainPage.getInitialProps = async ({ res, req }: NextPageContext) => {
-  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-  const isMobile = /Mobile/i.exec(userAgent ?? '');
-
-  if (isMobile && res) {
-    res.writeHead(307, { Location: '/mobile' });
-    res.end();
-  }
-
-  return {};
-};
-
 export default MainPage;
