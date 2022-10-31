@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from 'styles/timeline.module.scss';
-import { ImageWrapper } from 'components/common';
 
 const description = [
   'Internet Explorer users were at risk for',
@@ -124,7 +123,9 @@ const Desc2006 = () => {
           style={{ transform: 'rotate(75deg)' }}
           ref={square}
         />
-        <ImageWrapper src="videos/under2006.gif" className="w-[60%] aspect-square relative translate-y-[-5%]" />
+        <video autoPlay loop muted playsInline className="w-[60%] aspect-square relative translate-y-[-5%]">
+          <source src="videos/under2006.webm" type="video/webm" />
+        </video>
         <article className="w-[100vw] h-[100vh] absolute text-blue z-20" ref={container}>
           <div className="w-[100vw] h-[100vh] bg-white absolute" ref={background}>
             <h1 className="text-[8vw] leading-[120%] ml-5 pt-10" ref={header1}>
@@ -135,7 +136,7 @@ const Desc2006 = () => {
             </h1>
             <div className="flex ml-5" id="text-2" ref={header3}>
               <h1 className="text-[8vw] leading-[120%] mt-3 mr-4">Troubles</h1>
-              <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} priority={true} />
+              <Image src={'/icons/big-computer.svg'} alt="icon" width={147} height={145} />
             </div>
           </div>
         </article>
@@ -144,8 +145,10 @@ const Desc2006 = () => {
       <section className="w-full text-blue">
         <article className="bg-white pt-[10%] pb-[60%] relative" ref={blueContainer}>
           {/* <!-- 2006 3D object #2 --> */}
-          <div className="absolute bottom-10 w-full h-[60%] overflow-hidden">
-            <iframe src={'/videos/IE_updown_motion.gif'} className="w-full h-full" scrolling="no" />
+          <div className="absolute bottom-10 w-full h-[74%] overflow-hidden">
+            <video autoPlay loop muted playsInline className="absolute w-full h-full">
+              <source src="/videos/IE_updown_motion.webm" type="video/webm" />
+            </video>
           </div>
           <div className="ml-[37%]">
             {description.map((desc, index) => (
