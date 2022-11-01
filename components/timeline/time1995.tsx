@@ -36,9 +36,9 @@ const Time1995 = () => {
       .to('#navbar', {
         color: 'white',
       })
-      .to('#hamburger > div', { background: 'white' }, '<')
       // navbar
-      .fromTo('#container-1995', { opacity: 0 }, { opacity: 1 }, '1')
+      .to('#hamburger > div', { background: 'white' }, '<')
+      .fromTo('#container-1995', { opacity: 0 }, { opacity: 1 }, '<')
       .to('#container-1995', { background: '#FFFFFF' })
       .to('#overlay', { opacity: 0 }, '<')
       .to(q('#card'), { rotateY: (i) => i * ANGLE + 60, ease: 'linear' }, '<')
