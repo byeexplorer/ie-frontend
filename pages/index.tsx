@@ -8,7 +8,7 @@ import { CommentContext, useComment } from 'lib/hooks';
 
 function MainPage() {
   return (
-    <main>
+    <main className="bg-black">
       <Navbar />
       {/* <!-- Overview --> */}
       <Overview />
