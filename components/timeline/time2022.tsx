@@ -21,7 +21,7 @@ const Time2022 = () => {
   }, []);
 
   return (
-    <article id="ending">
+    <article id="ending" className="relative">
       <section className="flex justify-center items-center flex-col text-center w-screen h-screen" id="ending1">
         <div className="absolute w-[40%] aspect-square">
           <video autoPlay loop muted playsInline className="absolute w-full h-full">
