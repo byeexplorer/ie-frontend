@@ -33,7 +33,7 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="og:image" content="/images/navbar/blue.png" />
         <meta property="og:article:author" content="bye exlorer" />
       </Head>
-      <main ref={ref}>
+      <main ref={ref} style={{ background: '#000' }}>
         <Component {...pageProps} />
       </main>
     </>

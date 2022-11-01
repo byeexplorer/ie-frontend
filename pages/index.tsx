@@ -8,7 +8,7 @@ import { CommentContext, useComment } from 'lib/hooks';
 
 function MainPage() {
   return (
-    <main className="bg-black">
+    <>
       <Navbar />
       {/* <!-- Overview --> */}
       <Overview />
@@ -28,7 +28,7 @@ function MainPage() {
         <Guest />
         <Otherpeople />
       </CommentContext.Provider>
-    </main>
+    </>
   );
 }
 
