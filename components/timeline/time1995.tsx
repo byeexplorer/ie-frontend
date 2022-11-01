@@ -72,13 +72,7 @@ const Time1995 = () => {
     <>
       <div id="container-1995" className="w-screen h-screen bg-white">
         <div id="overlay" className="absolute w-full h-full">
-          <Image
-            src="/images/BG.webp"
-            alt="Windows' most famous wallpaper"
-            layout="fill"
-            objectFit="cover"
-            priority
-          ></Image>
+          <Image src="/images/BG.webp" alt="Windows' most famous wallpaper" layout="fill" objectFit="cover" />
         </div>
         <div className="absolute w-full h-screen flex flex-col text-black">
           <div id="text-wrapper">
