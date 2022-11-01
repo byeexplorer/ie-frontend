@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-// import Scene from './scene';
-import Image from 'next/image';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const Overview = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -21,12 +21,13 @@ const Overview = () => {
     });
 
     timeline.to('#scene', { color: 'rgba(0, 0, 0, 0)' });
-    timeline.fromTo('#scene img', { width: '600px' }, { width: '2400px', opacity: 0 }, '<');
+    timeline.fromTo(videoRef.current, { width: '600px' }, { width: '2400px', opacity: 0 }, '<');
     timeline.to('#intro > div:nth-of-type(1)', { opacity: 1, y: 0 }, '+=5%');
     timeline.to('#intro > div:nth-of-type(1)', { opacity: 0, y: -50 }, '+=5%');
     timeline.to('#intro > div:nth-of-type(2)', { opacity: 1, y: 0, delay: 0.5 }, '+=5%');
     timeline.to('#intro > div:nth-of-type(2)', { opacity: 0, y: -50 }, '+=5%');
   }, []);
+
   return (
     <article id="overview">
       <section id="scene">
@@ -36,7 +37,9 @@ const Overview = () => {
             <p className="italic">Rest In Peace.</p>
           </div>
           <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
-            <Image src={'/videos/ie-rotate.gif'} alt="object" width={600} height={600} priority={true} />
+            <video autoPlay loop muted playsInline ref={videoRef}>
+              <source src="/videos/ie-rotate.webm" type="video/webm" />
+            </video>
           </div>
         </div>
       </section>

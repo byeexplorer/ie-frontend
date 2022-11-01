@@ -10,7 +10,7 @@ type Props = {
 
 const ImageWrapper = forwardRef<HTMLDivElement, Props>(({ className, src, alt, id }, ref) => (
   <div className={className} id={id} ref={ref}>
-    <Image src={src} alt={alt ? alt : 'image'} layout="fill" priority={true} />
+    <Image src={src} alt={alt ? alt : 'image'} layout="fill" />
   </div>
 ));
 
