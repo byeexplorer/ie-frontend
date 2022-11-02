@@ -62,3 +62,8 @@ textarea {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.mobile {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}

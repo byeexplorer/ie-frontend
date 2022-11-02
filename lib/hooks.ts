@@ -32,7 +32,7 @@ export const useCommentStore = () => {
 const MAX_WIDTH = 1024;
 
 export default function useResizeObserver<T extends HTMLElement>() {
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean | null>(null);
   const ref = useRef<null | T>(null);
 
   useEffect(() => {

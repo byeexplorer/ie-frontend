@@ -10,11 +10,13 @@ function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (isMobileScreen && router.pathname !== '/mobile') {
-      router.replace('/mobile');
-    }
-    if (!isMobileScreen && router.pathname !== '/') {
-      router.replace('/');
+    if (isMobileScreen === null) return;
+    const isChrome = /Chrome/.exec(navigator.userAgent);
+
+    if (router.pathname === '/mobile') {
+      if (!isMobileScreen && isChrome) router.replace('/');
+    } else {
+      if (!isChrome || isMobileScreen) router.replace('/mobile');
     }
   }, [isMobileScreen, router]);
 
