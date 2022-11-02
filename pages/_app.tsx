@@ -1,23 +1,8 @@
-import useResizeObserver from 'lib/hooks';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import '../styles/globals.scss';
 
 function App({ Component, pageProps }: AppProps) {
-  const { isMobileScreen, ref } = useResizeObserver();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (isMobileScreen && router.pathname !== '/mobile') {
-      router.replace('/mobile');
-    }
-    if (!isMobileScreen && router.pathname !== '/') {
-      router.replace('/');
-    }
-  }, [isMobileScreen, router]);
-
   return (
     <>
       <Head>
@@ -33,7 +18,7 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="og:image" content="/images/navbar/blue.png" />
         <meta property="og:article:author" content="bye exlorer" />
       </Head>
-      <main ref={ref}>
+      <main>
         <Component {...pageProps} />
       </main>
     </>
